@@ -1,7 +1,6 @@
 {
   "name": "Vân Khánh Diary",
   "short_name": "VK Diary",
-  "description": "Du học sinh Việt Nam ở Trung Quốc — viết luận, tốt nghiệp.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

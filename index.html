@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no,maximum-scale=1">
+<meta name="theme-color" content="#ffb6d5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>🌸 Vân Khánh Diary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Comfortaa:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#4a3b5c;--ink2:#6b5a80;--mu:#a89ab8;
+  --pink:#ff8fb8;--pink2:#ffc6dd;--pink3:#ffe4ef;
+  --rose:#ff6b9d;--lav:#c9b6f0;--lav2:#e6dcff;
+  --mint:#8ed9c0;--mint2:#d4f4e7;
+  --honey:#ffd98a;
+  --sky:#7ec8e3;--sky2:#d4efff;
+  --leaf:#f5b971;--leaf2:#ffe6b8;
+  --snow:#a8c8e8;--snow2:#e8f2ff;
+  --shadow-soft:0 2px 8px rgba(180,140,180,.18);
+  --radius:14px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+html,body{margin:0;height:100%;overflow:hidden;color:var(--ink);font:600 13.5px/1.35 "Quicksand",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{
+  background:
+    radial-gradient(circle at 8% 12%,rgba(255,200,220,.5) 0 6px,transparent 7px),
+    radial-gradient(circle at 88% 22%,rgba(255,220,240,.45) 0 5px,transparent 6px),
+    radial-gradient(circle at 22% 78%,rgba(220,190,240,.4) 0 5px,transparent 6px),
+    radial-gradient(circle at 78% 88%,rgba(255,200,220,.4) 0 6px,transparent 7px),
+    linear-gradient(160deg,#fff5f9 0%,#fdeef8 25%,#f5ecff 55%,#e8f4ff 85%,#e0f0ff 100%);
+  background-attachment:fixed;
+}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-action:manipulation;padding:0}
+.hide{display:none!important}.mu{color:var(--mu)}.sm{font-size:11px}
+
+#app{
+  height:100vh;height:100dvh;max-width:480px;margin:0 auto;
+  display:grid;grid-template-rows:auto minmax(0,1fr) auto;
+  grid-template-columns:minmax(0,1fr);gap:7px;
+  padding:calc(env(safe-area-inset-top) + 8px) 9px calc(env(safe-area-inset-bottom) + 8px);
+}
+
+/* HUD */
+#hd{
+  position:relative;color:#fff;border-radius:var(--radius);
+  padding:16px 12px 10px;
+  background:
+    radial-gradient(circle at 20% -20%,rgba(255,255,255,.6),transparent 40%),
+    radial-gradient(circle at 85% 110%,rgba(255,220,240,.4),transparent 50%),
+    linear-gradient(155deg,#ffb3d1 0%,#ff8fb8 40%,#c9b6f0 100%);
+  box-shadow:var(--shadow-soft),0 3px 0 rgba(180,140,180,.35),inset 0 1px 0 rgba(255,255,255,.5);
+  overflow:hidden;
+}
+#hd::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:11px;
+  background:radial-gradient(circle,rgba(255,255,255,.75) 0 2px,transparent 3px) 0 0/14px 11px;
+  border-bottom:1px solid rgba(255,255,255,.5);pointer-events:none;
+}
+#hd::after{
+  content:"✧ ˚ ✧";position:absolute;right:8px;bottom:6px;
+  font-size:9px;color:rgba(255,255,255,.6);letter-spacing:2px;pointer-events:none;
+}
+#pause{
+  position:absolute;right:7px;top:14px;width:26px;height:26px;border-radius:50%;
+  background:rgba(255,255,255,.4);border:2px solid #fff;
+  font-size:12px;line-height:1;z-index:3;color:#fff;
+  box-shadow:0 2px 0 rgba(180,140,180,.4);
+}
+.logo-wrap{
+  display:flex;align-items:center;gap:8px;
+  position:relative;z-index:1;padding:0 30px 0 2px;min-width:0;
+}
+#logo{
+  flex:none;width:36px;height:36px;border-radius:50%;object-fit:cover;
+  border:2px solid #fff;
+  box-shadow:0 2px 4px rgba(150,90,130,.35),0 0 0 2px rgba(255,255,255,.5);
+  background:#ffc6dd;
+}
+.logo-wrap .t{
+  flex:1;min-width:0;text-align:left;font-size:13.5px;font-weight:700;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  text-shadow:0 1px 2px rgba(150,90,130,.35);
+  font-family:"Comfortaa","Quicksand",sans-serif;
+}
+.logo-wrap .t small{display:block;font-size:8px;opacity:.75;letter-spacing:2px;font-weight:600;margin-top:1px;font-family:"Quicksand",sans-serif}
+#hd .r{display:flex;align-items:center;gap:5px;margin-top:5px;white-space:nowrap;position:relative;z-index:1}
+.stat{
+  flex:1;min-width:0;display:flex;align-items:center;justify-content:center;gap:2px;
+  background:rgba(255,255,255,.3);border:1.5px solid rgba(255,255,255,.65);
+  border-radius:10px;padding:3px 5px;font-size:11.5px;font-weight:700;
+}
+.bar{height:6px;border-radius:4px;background:rgba(255,255,255,.4);overflow:hidden;margin-top:4px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#fff3b8,#ffd98a);transition:width .3s}
+.bar.hp i{background:linear-gradient(90deg,#ffb3c1,#ff6b9d)}
+.bar.sp i{background:linear-gradient(90deg,#ffe4a8,#ffd070)}
+.bar.kt i{background:linear-gradient(90deg,#a8e6d0,#7ecbaf)}
+.bar.lv i{background:linear-gradient(90deg,#c9b6f0,#a890e0)}
+.bar-lbl{position:absolute;inset:0;display:grid;place-items:center;font-size:8.5px;color:#fff;text-shadow:0 1px 1px rgba(150,90,130,.6);font-weight:700}
+.bar-w{position:relative;margin-top:5px}
+
+/* Chương theme */
+.ch1{--w1:#ffe4b8;--w2:#f5b971;--dc:#8a4a2a;--bg:#fff8ee;--acc:#f5b971}
+.ch2{--w1:#a8c8e8;--w2:#7ec8e3;--dc:#2a4a6a;--bg:#f0f8ff;--acc:#7ec8e3}
+
+/* SCENE */
+#scene{
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+  border-radius:var(--radius);
+  background:linear-gradient(180deg,var(--w1),var(--w2)) top/100% 30px no-repeat,var(--bg);
+  box-shadow:var(--shadow-soft),0 3px 0 rgba(180,140,180,.35);
+  min-height:0;
+}
+#scene::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:30px;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.25) 0 6px,transparent 6px 12px);
+  pointer-events:none;
+}
+#clock{
+  position:relative;z-index:1;
+  padding:8px 12px 6px;
+  text-align:center;
+}
+#clock .time{
+  font-family:"Comfortaa",sans-serif;
+  font-size:32px;font-weight:700;line-height:1;
+  color:#fff;
+  text-shadow:0 2px 4px rgba(150,90,130,.4);
+  letter-spacing:1px;
+}
+#clock .date{
+  font-size:11px;opacity:.85;margin-top:2px;
+  font-weight:700;letter-spacing:.5px;
+}
+#avatar-w{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;z-index:1;padding:4px 12px;min-height:0;
+}
+#avatar{
+  width:84px;height:84px;border-radius:50%;
+  object-fit:cover;
+  border:3px solid #fff;
+  box-shadow:0 4px 10px rgba(150,90,130,.3),0 0 0 3px rgba(255,255,255,.5);
+  background:#ffc6dd;
+  margin-bottom:6px;
+  animation:avatarBob 3s ease-in-out infinite;
+}
+@keyframes avatarBob{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-3px)}
+}
+#mood{
+  font-size:12.5px;font-weight:700;color:var(--dc);
+  text-align:center;padding:2px 12px;
+  background:rgba(255,255,255,.55);
+  border-radius:20px;
+  box-shadow:0 1px 3px rgba(150,90,130,.1);
+  max-width:90%;
+}
+#log{
+  position:relative;z-index:1;
+  margin:6px 10px 0;
+  background:rgba(255,255,255,.55);
+  border-radius:10px;
+  padding:5px 9px;
+  font-size:11px;
+  color:var(--dc);
+  line-height:1.45;
+  max-height:76px;
+  overflow:hidden;
+  min-height:48px;
+}
+#log .ln{display:block}
+#log .ln::before{content:"· ";opacity:.6}
+
+/* ACTIONS */
+#acts-wrap{
+  border-radius:var(--radius);
+  background:radial-gradient(circle at 50% 0%,rgba(255,220,235,.4),transparent 60%),#fff;
+  box-shadow:var(--shadow-soft),0 3px 0 rgba(180,140,180,.3);
+  padding:8px;
+}
+#acts{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:6px;
+}
+.act{
+  position:relative;border-radius:12px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-weight:700;font-size:9.5px;line-height:1.15;
+  height:clamp(50px,6.4vh,62px);
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,255,255,.9),transparent 70%),
+    linear-gradient(180deg,#fff,#f5f0ff);
+  box-shadow:var(--shadow-soft),inset 0 0 0 1.5px rgba(255,255,255,.9);
+  color:var(--ink);transition:transform .12s;
+  padding:3px;
+}
+.act b{font-size:19px;line-height:1.1;margin-bottom:1px;font-weight:400}
+.act span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center}
+.act small{position:absolute;top:2px;right:5px;font-size:8px;color:var(--mu);font-weight:600}
+.act:active{transform:translateY(2px)}
+.act.dis{opacity:.4;filter:grayscale(.7)}
+.act.hi{
+  background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.6),transparent 70%),linear-gradient(180deg,#ffc6dd,#ff9bbf);
+  color:#fff;
+}
+.act.good{
+  background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.6),transparent 70%),linear-gradient(180deg,#a8e6d0,#7ecbaf);
+  color:#fff;
+}
+.act.warn{
+  background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.6),transparent 70%),linear-gradient(180deg,#ffe4a8,#ffd070);
+  color:#8a5a00;
+}
+.act.home{
+  background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.6),transparent 70%),linear-gradient(180deg,#ffb3d1,#ff6b9d);
+  color:#fff;
+}
+
+/* NAV */
+#nav{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:6px;
+}
+#nav button{
+  position:relative;border-radius:11px;
+  font-size:11px;font-weight:700;padding:8px 4px;
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  color:var(--ink);
+  background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.95),transparent 70%),linear-gradient(180deg,#fff,#f5eeff);
+  box-shadow:var(--shadow-soft),inset 0 0 0 1.5px rgba(255,255,255,.9);
+  font-family:"Comfortaa","Quicksand",sans-serif;
+}
+#nav button b{font-size:17px;line-height:1;font-weight:400}
+#nav button:active{transform:translateY(2px)}
+#nav .badge{
+  position:absolute;top:4px;right:8px;
+  min-width:14px;height:14px;border-radius:7px;
+  background:var(--rose);color:#fff;font-size:9px;
+  display:grid;place-items:center;padding:0 4px;
+  border:1.5px solid #fff;
+  font-family:"Quicksand",sans-serif;
+}
+
+/* SHEET / MODAL */
+#sheet{
+  position:fixed;inset:0;z-index:50;background:rgba(74,59,92,.45);
+  display:flex;align-items:flex-end;justify-content:center;
+  backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);
+}
+.shx{
+  width:100%;max-width:480px;max-height:82vh;overflow:auto;
+  border-radius:20px 20px 0 0;
+  padding:14px 16px calc(env(safe-area-inset-bottom) + 18px);
+  background:radial-gradient(circle at 50% 0%,rgba(255,220,235,.5),transparent 40%),linear-gradient(180deg,#fff,#fdf8ff);
+  box-shadow:0 -6px 20px rgba(180,140,180,.25);
+  animation:sup .28s cubic-bezier(.2,1.3,.5,1);
+}
+@keyframes sup{from{transform:translateY(100%)}}
+.shh{display:flex;align-items:center;font-size:17px;font-weight:700;margin-bottom:8px;padding-bottom:8px;border-bottom:1.5px dashed var(--pink2);font-family:"Comfortaa",sans-serif;color:var(--ink)}
+.shh b{flex:1}
+h3{margin:14px 0 4px;font-size:14px;font-weight:700;color:var(--rose);display:flex;align-items:center;gap:6px;font-family:"Comfortaa",sans-serif}
+h3::before{content:"✿";color:var(--pink);font-size:16px}
+.it{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed #f0e8f5}
+.it:last-child{border:0}
+.it .m{flex:1;min-width:0}
+.it .m b{display:block}
+.it small{display:block;color:var(--mu);font-weight:600;margin-top:2px}
+.bs{display:flex;gap:5px;flex-wrap:wrap}
+.b2{
+  border-radius:10px;padding:6px 11px;font-weight:700;font-size:12px;white-space:nowrap;
+  background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.9),transparent 70%),linear-gradient(180deg,#fff,#f0eaff);
+  box-shadow:0 2px 0 rgba(180,140,180,.25),inset 0 0 0 1.5px rgba(255,255,255,.9);
+  color:var(--ink);
+}
+.b2.p{background:linear-gradient(180deg,#ffb3d1,#ff8fb8);color:#fff;text-shadow:0 1px 1px rgba(180,80,120,.3)}
+.b2.g{background:linear-gradient(180deg,#a8e6d0,#7ecbaf);color:#fff}
+.b2:active{transform:translateY(2px);box-shadow:0 0 0 rgba(0,0,0,0)}
+.b2:disabled{opacity:.45}
+
+#modal{
+  position:fixed;inset:0;z-index:60;background:rgba(74,59,92,.5);
+  display:grid;place-items:center;padding:16px;
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+}
+.bx{
+  width:100%;max-width:420px;max-height:88vh;overflow:auto;
+  border-radius:22px;padding:20px;
+  background:radial-gradient(circle at 50% 0%,rgba(255,220,235,.6),transparent 40%),linear-gradient(180deg,#fff,#fdf8ff);
+  box-shadow:0 8px 24px rgba(180,140,180,.3);
+  animation:pp .3s cubic-bezier(.2,1.3,.5,1);
+}
+@keyframes pp{from{transform:scale(.88);opacity:0}}
+.bx h2{margin:0 0 10px;text-align:center;font-size:19px;color:var(--rose);padding-bottom:8px;border-bottom:1.5px dashed var(--pink2);font-family:"Comfortaa",sans-serif}
+.bx .body{font-size:13px;line-height:1.55}
+.bx .body b{color:var(--rose)}
+.ev{background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.7),transparent 70%),linear-gradient(180deg,#fff8e0,#ffeec0);border-radius:12px;padding:9px 12px;margin:8px 0;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.8)}
+.g2{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:12.5px}
+.mb{display:grid;gap:9px;margin-top:14px}
+.mb2{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
+.sp{display:flex;justify-content:center;margin:8px 0 4px}
+.sp img{width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 12px rgba(180,120,150,.35),0 0 0 3px rgba(255,255,255,.6);background:#ffc6dd}
+
+/* TOAST */
+#toast{position:fixed;left:50%;top:22%;transform:translateX(-50%);z-index:70;display:grid;gap:6px;width:min(92vw,420px);pointer-events:none}
+#toast div{
+  background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.3),transparent 70%),linear-gradient(180deg,#ffb3d1,#ff8fb8);
+  color:#fff;border:2px solid #fff;border-radius:14px;
+  padding:7px 14px;text-align:center;font-weight:700;font-size:12.5px;
+  box-shadow:0 4px 10px rgba(200,120,160,.3);
+  animation:pp .25s ease-out;
+  text-shadow:0 1px 2px rgba(180,80,120,.3);
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+</style>
+</head>
+<body class="ch1">
+<div id="app">
+  <header id="hd">
+    <button id="pause" data-a="pause">⏸</button>
+    <div class="logo-wrap">
+      <img id="logo" src="icon-192.png" alt="Vân Khánh">
+      <div class="t">Vân Khánh Diary<small id="chapLbl">✿ THẠC SĨ · BẮC KINH ✿</small></div>
+    </div>
+    <div class="r">
+      <span class="stat">⚡<b id="hpV"></b></span>
+      <span class="stat">💗<b id="spV"></b></span>
+      <span class="stat">💰<b id="moneyV"></b></span>
+      <span class="stat">📚<b id="ktV"></b></span>
+    </div>
+    <div class="bar-w bar hp"><i id="hpB"></i><span class="bar-lbl" id="hpLbl"></span></div>
+    <div class="bar-w bar lv"><i id="lvB"></i><span class="bar-lbl" id="lvLbl"></span></div>
+  </header>
+
+  <section id="scene">
+    <div id="clock">
+      <div class="time" id="timeV">08:00</div>
+      <div class="date" id="dateV">Ngày 1 · Thứ Hai</div>
+    </div>
+    <div id="avatar-w">
+      <img id="avatar" src="icon-192.png" alt="Vân Khánh">
+      <div id="mood">Vân Khánh đang chuẩn bị cho ngày mới.</div>
+    </div>
+    <div id="log">
+      <span class="ln">Nhật ký hôm nay sẽ ghi lại ở đây...</span>
+    </div>
+  </section>
+
+  <div id="acts-wrap">
+    <div id="acts"></div>
+    <nav id="nav">
+      <button data-a="log"><b>📖</b>Nhật ký</button>
+      <button data-a="record"><b>🏆</b>Kỷ lục</button>
+      <button data-a="home"><b>🏠</b>Về nhà</button>
+    </nav>
+  </div>
+</div>
+
+<div id="sheet" class="hide"><div class="shx"><div class="shh"><b id="sht"></b><button class="b2" data-a="closeSheet">✕</button></div><div id="shb"></div></div></div>
+<div id="modal" class="hide"></div>
+<div id="toast"></div>
+<script>
+'use strict';
+const $=s=>document.querySelector(s);
+const $$=s=>document.querySelectorAll(s);
+const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
+const R=(a,b)=>a+Math.random()*(b-a);
+const P=a=>a[Math.random()*a.length|0];
+const F=n=>Math.round(n).toLocaleString('vi-VN');
+
+const KEY='vkdiary_v1';
+const SLOT='vkdiary_slot_v1';
+const REC_KEY='vkdiary_rec_v1';
+const SAVE_VER=1;
+const DAY_SEC=240;              // 4 phút = 24h game
+const HOUR_SEC=DAY_SEC/24;      // 10 giây = 1 giờ
+const RENT_C1=200,RENT_C2=300;
+const START_MONEY=500;
+
+/* ============ DATA ============ */
+const WD=['Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy','Chủ Nhật'];
+
+const ACTS=[
+  // Ăn
+  {k:'bs',n:'Sáng',e:'🍚',h:1,hp:8,sp:3,m:-5,grp:'an'},
+  {k:'bt',n:'Trưa',e:'🍜',h:1,hp:12,sp:4,m:-8,grp:'an'},
+  {k:'bd',n:'Tối',e:'🍲',h:1,hp:12,sp:4,m:-8,grp:'an'},
+  {k:'bde',n:'Đêm',e:'🥟',h:1,hp:8,sp:2,m:-10,grp:'an'},
+  // Ngủ
+  {k:'nt',n:'Ngủ trưa',e:'😴',h:1,hp:5,sp:15,grp:'ngu'},
+  {k:'nd',n:'Ngủ đêm',e:'🌙',h:7,hp:18,sp:35,grp:'ngu'},
+  {k:'nb',n:'Ngủ bù',e:'💤',h:9,hp:25,sp:40,grp:'ngu',once:1},
+  // Làm
+  {k:'w1',n:'Trà sữa',e:'🧋',h:3,hp:-8,sp:-10,m:45,grp:'lam'},
+  {k:'w2',n:'Dạy Việt',e:'📖',h:2,hp:-5,sp:-8,m:60,grp:'lam'},
+  {k:'w3',n:'Bưng bê',e:'🍽️',h:4,hp:-15,sp:-15,m:70,grp:'lam'},
+  {k:'w4',n:'Dịch',e:'✍️',h:3,hp:-6,sp:-12,m:90,grp:'lam'},
+  {k:'w5',n:'Xe ôm',e:'🛵',h:3,hp:-12,sp:-10,m:75,grp:'lam'},
+  // Học
+  {k:'r1',n:'Đọc sách',e:'📕',h:3,hp:-5,sp:-10,kt:10,grp:'hoc'},
+  {k:'r2',n:'Thư viện',e:'📚',h:4,hp:-6,sp:-12,kt:18,grp:'hoc'},
+  {k:'r3',n:'Tiếng Trung',e:'🀄',h:2,hp:-4,sp:-8,kt:6,grp:'hoc'},
+  // Viết luận
+  {k:'wr',n:'Viết chương',e:'✒️',h:4,hp:-10,sp:-15,lu:1,grp:'viet'},
+  {k:'fx',n:'Sửa lỗi',e:'🔍',h:2,hp:-4,sp:-8,lu:3,grp:'viet'},
+  {k:'pf',n:'Gặp GV',e:'🧑‍🏫',h:2,hp:-3,sp:-5,lu:2,grp:'viet',once:1},
+  // Chơi
+  {k:'c1',n:'Cafe',e:'☕',h:2,hp:-2,sp:18,m:-25,grp:'choi'},
+  {k:'c2',n:'Đi phố',e:'🚶',h:3,hp:-4,sp:22,m:-40,grp:'choi'},
+  {k:'c3',n:'Chụp ảnh',e:'📸',h:2,hp:-3,sp:15,m:10,grp:'choi'},
+  {k:'c4',n:'Gọi nhà',e:'📞',h:1,hp:0,sp:25,m:-5,grp:'choi'},
+  // Bệnh viện
+  {k:'hosp',n:'Bệnh viện',e:'🏥',h:3,hp:40,m:-150,grp:'y',need:'hpLow'}
+];
+
+const GRP_LABEL={an:'Ăn',ngu:'Ngủ',lam:'Làm',hoc:'Học',viet:'Viết',choi:'Chơi',y:'Y'};
+
+/* Nhân vật theo chương */
+const CHARS={
+  1:[
+    {k:'hoa',e:'👩',n:'Hòa',r:'Bạn cùng lớp người Trung Quốc',d:'Tốt bụng, hay giúp đỡ'},
+    {k:'hung',e:'🧑',n:'Hưng',r:'Đàn anh du học sinh Việt',d:'Khóa trên, đã 3 năm ở Bắc Kinh'},
+    {k:'tran',e:'🧑‍🏫',n:'GS. Trần',r:'Người hướng dẫn',d:'Khó tính, ít nói, công bằng'},
+    {k:'ba',e:'👵',n:'Bà chủ quán',r:'Quán cơm dưới nhà',d:'Thương Vân Khánh như con'}
+  ],
+  2:[
+    {k:'ly',e:'🧑‍🏫',n:'GS. Lý',r:'Người hướng dẫn mới',d:'Trẻ, nhiệt tình, yêu cầu cao'},
+    {k:'tuyet',e:'👩',n:'Hàn Tuyết',r:'Nghiên cứu sinh cùng lab',d:'Đối thủ cạnh tranh'},
+    {k:'alexei',e:'🧔',n:'Alexei',r:'Nghiên cứu sinh người Nga',d:'Mê văn học Việt Nam'}
+  ]
+};
+
+/* Mood theo chỉ số */
+function moodText(){
+  if(S.hp<20) return 'Vân Khánh thấy mệt lả, cần đi bệnh viện hoặc nghỉ ngơi.';
+  if(S.sp<20) return 'Vân Khánh thấy chán nản, không muốn viết gì cả.';
+  if(S.hp<40) return 'Vân Khánh hơi đuối sức, nên ăn uống đầy đủ.';
+  if(S.sp<40) return 'Vân Khánh thấy mệt mỏi, cần thư giãn chút.';
+  if(S.t<6) return 'Trời còn sớm, Vân Khánh mở mắt nhìn trần nhà.';
+  if(S.t<12) return 'Buổi sáng yên tĩnh, Vân Khánh ngồi bên cửa sổ.';
+  if(S.t<18) return 'Buổi chiều, nắng nhạt chiếu qua khung cửa.';
+  if(S.t<22) return 'Trời tối dần, Vân Khánh bật đèn bàn.';
+  return 'Đêm khuya, Vân Khánh vẫn còn thức.';
+}
+
+const INTRO=`<div class="sp"><img src="icon-192.png" alt=""></div>
+<h2>🌸 Vân Khánh Diary</h2>
+<div class="body">
+Vân Khánh 22 tuổi, vừa tốt nghiệp đại học ở Việt Nam. Cô nhận được học bổng thạc sĩ ở <b>Capital Normal University (Bắc Kinh)</b>, rồi sau đó là tiến sĩ ở <b>SISU Thượng Hải</b>.
+<br><br>
+Học bổng chỉ trả học phí, không trả sinh hoạt. Cô phải tự lo tiền nhà, tiền ăn, và cả <b>luận văn</b> — trong một thành phố xa lạ.
+<br><br>
+🌸 <b>Mục tiêu:</b> Viết xong luận văn thạc sĩ → chuyển lên Thượng Hải → viết luận văn tiến sĩ → tốt nghiệp.
+<br><br>
+Bố mẹ và em gái sẽ bay sang Thượng Hải dự lễ tốt nghiệp. Mẹ đã hứa như vậy.
+</div>
+<div class="mb"><button class="btn p" data-a="mx">Bắt đầu 💕</button></div>`;
+
+const HELP=`<h2>🌸 Cách chơi</h2>
+<div class="body">
+1 ngày game kéo dài <b>4 phút thực</b> (24 giờ). Mỗi hành động tốn số giờ nhất định.
+<br><br>
+<b>Chỉ số:</b><br>
+⚡ <b>Sức khỏe (HP)</b> — dưới 20 thì hành động yếu 50%<br>
+💗 <b>Tinh thần (SP)</b> — dưới 20 thì viết luận yếu 50%<br>
+📚 <b>Kiến thức</b> — càng cao viết luận càng nhanh<br>
+📝 <b>Luận văn</b> — đạt 100% là tốt nghiệp
+<br><br>
+<b>Lưu ý:</b><br>
+• Mỗi 7 ngày phải trả tiền nhà (200 NDT ở Bắc Kinh, 300 ở Thượng Hải)<br>
+• Hết tiền → bị đuổi → thua<br>
+• HP = 0 → nhập viện<br>
+• Ngủ bù chỉ được 1 lần/ngày<br>
+• Viết chương cần HP ≥ 30 và SP ≥ 30<br>
+• Bấm 🏠 bất cứ lúc nào để kết thúc sớm
+<br><br>
+<b>Kết thúc:</b> khi Luận văn = 100%, bố mẹ và em gái sẽ bay sang dự lễ tốt nghiệp.
+</div>
+<div class="mb"><button class="btn p" data-a="mx">OK! 🌸</button></div>`;
+
+/* ============ STATE ============ */
+const D0=()=>({
+  day:1,ch:1,t:0,hp:80,sp:70,kt:5,lu:0,
+  money:START_MONEY,
+  usedDay:{},          // once per day
+  flags:{},            // sự kiện đã kích hoạt
+  logDay:[],           // log hôm nay
+  logAll:[],           // log tất cả (giữ 200 dòng gần nhất)
+  seen:0, snd:1,
+  rentPaid:0,          // số lần đã trả nhà
+  endReason:''         // 'grad' hoặc 'home'
+});
+
+let S=D0();
+try{
+  const raw=localStorage.getItem(KEY);
+  if(raw){
+    const o=JSON.parse(raw);
+    if(o&&o.ch&&o.day) S=Object.assign(D0(),o);
+  }
+}catch(e){}
+
+const T={pause:0,modal:0,mq:[],sheet:'',now:performance.now(),acc:0,sv:0};
+
+/* ============ SAVE ============ */
+function pack(){
+  return JSON.stringify({v:SAVE_VER,ts:Date.now(),data:S});
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function saveSlot(){try{localStorage.setItem(SLOT,pack());return true}catch(e){return false}}
+function loadSlot(){
+  try{
+    const raw=localStorage.getItem(SLOT);
+    if(!raw) return false;
+    const o=JSON.parse(raw);
+    if(!o||o.v!==SAVE_VER||!o.data) return false;
+    S=Object.assign(D0(),o.data);
+    T.modal=0;T.mq=[];T.sheet='';
+    $('#modal').classList.add('hide');
+    $('#sheet').classList.add('hide');
+    return true;
+  }catch(e){return false}
+}
+const hasSlot=()=>!!localStorage.getItem(SLOT);
+function slotInfo(){
+  try{
+    const raw=localStorage.getItem(SLOT);
+    if(!raw) return null;
+    const o=JSON.parse(raw);
+    const d=new Date(o.ts);
+    return {day:o.data.day,ch:o.data.ch,lu:o.data.lu,
+      time:`${d.getHours()}:${String(d.getMinutes()).padStart(2,'0')} ${d.getDate()}/${d.getMonth()+1}`};
+  }catch(e){return null}
+}
+function deleteSlot(){try{localStorage.removeItem(SLOT);return true}catch(e){return false}}
+function exportSave(){
+  try{
+    const blob=new Blob([pack()],{type:'application/json'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;
+    a.download=`van-khanh-diary-ngay${S.day}.json`;
+    document.body.append(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+    toast('💾 Đã xuất file save!');
+  }catch(e){toast('❌ Không xuất được file')}
+}
+function importSave(){
+  const inp=document.createElement('input');
+  inp.type='file';inp.accept='.json,application/json';
+  inp.onchange=()=>{
+    const f=inp.files&&inp.files[0];
+    if(!f) return;
+    const r=new FileReader();
+    r.onload=()=>{
+      try{
+        const o=JSON.parse(r.result);
+        if(!o||!o.data) return toast('❌ File không hợp lệ');
+        if(!confirm(`Nhập save Ngày ${o.data.day} · Chương ${o.data.ch}?\nTiến trình hiện tại sẽ mất.`)) return;
+        S=Object.assign(D0(),o.data);
+        save();drawAll();
+        toast('✅ Đã nhập save!');
+      }catch(e){toast('❌ Lỗi đọc file')}
+    };
+    r.readAsText(f);
+  };
+  inp.click();
+}
+function manualSave(){saveSlot()?toast('💾 Đã lưu!'):toast('❌ Không lưu được')}
+function manualLoad(){
+  if(!hasSlot()) return toast('📭 Chưa có save');
+  const i=slotInfo();
+  if(!confirm(`Tải save?\nNgày ${i.day} · Chương ${i.ch} · Luận văn ${Math.round(i.lu)}%\nLưu lúc ${i.time}`)) return;
+  if(loadSlot()){save();drawAll();toast('📂 Đã tải save!')}
+  else toast('❌ Save lỗi');
+}
+
+/* ============ RECORD ============ */
+function getRecords(){
+  try{
+    const raw=localStorage.getItem(REC_KEY);
+    return raw?JSON.parse(raw):{best1:null,best2:null,bestTotal:null,finishes:[]};
+  }catch(e){return {best1:null,best2:null,bestTotal:null,finishes:[]}}
+}
+function saveRecords(r){try{localStorage.setItem(REC_KEY,JSON.stringify(r))}catch(e){}}
+function recordFinish(totalDays,ch1Days,ch2Days){
+  const r=getRecords();
+  r.finishes=r.finishes||[];
+  r.finishes.push({d:totalDays,ch1:ch1Days,ch2:ch2Days,ts:Date.now()});
+  if(r.finishes.length>10) r.finishes=r.finishes.slice(-10);
+  if(!r.best1||ch1Days<r.best1) r.best1=ch1Days;
+  if(!r.best2||ch2Days<r.best2) r.best2=ch2Days;
+  if(!r.bestTotal||totalDays<r.bestTotal) r.bestTotal=totalDays;
+  saveRecords(r);
+}
+
+/* ============ AUDIO ============ */
+let AC=null;
+function beep(f=600,d=.1){
+  if(!S.snd) return;
+  try{
+    if(!AC) AC=new (window.AudioContext||window.webkitAudioContext)();
+    if(AC.state==='suspended') AC.resume();
+    const o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime;
+    o.type='sine';o.frequency.value=f;
+    g.gain.setValueAtTime(.04,t);
+    g.gain.exponentialRampToValueAtTime(.001,t+d);
+    o.connect(g).connect(AC.destination);
+    o.start(t);o.stop(t+d);
+  }catch(e){}
+}
+
+/* ============ UI HELPERS ============ */
+function toast(m){
+  const d=document.createElement('div');
+  d.textContent=m;
+  $('#toast').append(d);
+  setTimeout(()=>d.remove(),2000);
+  const q=$('#toast').children;
+  if(q.length>3) q[0].remove();
+}
+function modal(h){
+  if(T.modal){T.mq.push(h);return}
+  T.modal=1;
+  $('#modal').innerHTML=`<div class="bx">${h}</div>`;
+  $('#modal').classList.remove('hide');
+}
+function mclose(){
+  T.modal=0;
+  $('#modal').classList.add('hide');
+  if(T.mq.length) modal(T.mq.shift());
+}
+function openSheet(k){
+  if(k=='log') openLog();
+  else if(k=='record') openRecord();
+  else {T.sheet='';$('#sheet').classList.add('hide')}
+}
+function closeSheet(){T.sheet='';$('#sheet').classList.add('hide')}
+
+/* ============ CLOCK / HOURS ============ */
+function fmtTime(t){
+  const h=Math.floor(t),m=Math.floor((t-h)*60);
+  return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+}
+function isOnce(k){return S.usedDay[k]}
+
+/* ============ DRAW ============ */
+function drawHead(){
+  document.body.className='ch'+S.ch;
+  $('#chapLbl').textContent=S.ch==1?'✿ THẠC SĨ · BẮC KINH ✿':'✿ TIẾN SĨ · THƯỢNG HẢI ✿';
+  $('#hpV').textContent=Math.round(S.hp);
+  $('#spV').textContent=Math.round(S.sp);
+  $('#moneyV').textContent=F(S.money);
+  $('#ktV').textContent=Math.round(S.kt);
+  const hpP=S.hp+'%',lvP=S.lu+'%';
+  $('#hpB').style.width=hpP;
+  $('#lvB').style.width=lvP;
+  $('#hpLbl').textContent='HP '+Math.round(S.hp);
+  $('#lvLbl').textContent='Luận văn '+S.lu.toFixed(1)+'%';
+}
+function drawScene(){
+  $('#timeV').textContent=fmtTime(S.t);
+  const wd=WD[(S.day-1)%7];
+  $('#dateV').textContent=`Ngày ${S.day} · ${wd}`;
+  $('#mood').textContent=moodText();
+  // Log hôm nay
+  const lines=S.logDay.slice(-5);
+  const html=lines.length
+    ? lines.map(l=>`<span class="ln">${l}</span>`).join('')
+    : `<span class="ln" style="opacity:.6">Nhật ký hôm nay sẽ ghi lại ở đây...</span>`;
+  $('#log').innerHTML=html;
+}
+function drawActs(){
+  const hourlyByGroup={};
+  const nAct=ACTS.length;
+  let html='';
+  for(let i=0;i<nAct;i++){
+    const a=ACTS[i];
+    // Điều kiện
+    let dis=false,cls='';
+    if(a.h>24-S.t) dis=true;                                 // không đủ giờ
+    if(a.need=='hpLow' && S.hp>=20) dis=true;                // bệnh viện chỉ khi HP<20
+    if(a.once && isOnce(a.k)) dis=true;                      // 1 lần/ngày
+    if(a.k=='wr' && (S.hp<30||S.sp<30)) dis=true;            // viết cương cần HP,SP
+    if(a.m<0 && S.money< -a.m) dis=true;                     // không đủ tiền
+    if(a.k=='wr' && S.lu>=100) dis=true;                     // đã full
+    if(a.h>0 && S.hp<=0) dis=true;
+    // Class màu
+    if(a.grp=='viet' && !dis) cls='good';
+    else if(a.grp=='choi' && !dis) cls='hi';
+    else if(a.grp=='lam' && !dis) cls='warn';
+    if(dis) cls+=' dis';
+    const cost=a.m?`<small>${a.m>0?'+':''}${a.m}</small>`:'';
+    html+=`<button class="act ${cls}" data-a="do" data-k="${a.k}"><b>${a.e}</b><span>${a.n}</span>${cost}</button>`;
+  }
+  $('#acts').innerHTML=html;
+}
+
+function drawAll(){drawHead();drawScene();drawActs()}
+
+/* ============ ACTION LOGIC ============ */
+function addLog(s){
+  S.logDay.push(s);
+  if(S.logDay.length>40) S.logDay.shift();
+  S.logAll.push({d:S.day,s:s});
+  if(S.logAll.length>300) S.logAll.shift();
+}
+function lowEff(){
+  return (S.hp<30 || S.sp<30) ? 0.5 : 1;
+}
+function applyAct(a){
+  // Thời gian
+  S.t+=a.h;
+  // HP
+  if(a.hp) S.hp=cl(S.hp+a.hp,0,100);
+  // SP
+  if(a.sp) S.sp=cl(S.sp+a.sp,0,100);
+  // Tiền
+  if(a.m) S.money+=a.m;
+  // KT
+  if(a.kt){
+    const eff=lowEff();
+    const gain=Math.round(a.kt*eff);
+    S.kt+=gain;
+    addLog(`${a.e} ${a.n}: +${gain} kiến thức${eff<1?' (mệt)':''}`);
+  } else if(a.lu){
+    const eff=lowEff();
+    let gain=a.lu;
+    if(a.lu==1){
+      // viết chương
+      gain=8*(1+S.kt/50)*eff;
+    }
+    gain=Math.round(gain*10)/10;
+    S.lu=cl(S.lu+gain,0,100);
+    addLog(`${a.e} ${a.n}: +${gain}% luận văn${eff<1?' (mệt)':''}`);
+  } else if(a.grp=='lam'){
+    addLog(`${a.e} ${a.n}: +${a.m} NDT`);
+  } else if(a.grp=='an'){
+    addLog(`${a.e} ${a.n}`);
+  } else if(a.grp=='ngu'){
+    addLog(`${a.e} ${a.n}`);
+  } else if(a.grp=='choi'){
+    addLog(`${a.e} ${a.n}`);
+  } else if(a.grp=='y'){
+    addLog(`🏥 Đi khám, hồi phục sức khỏe`);
+  }
+  if(a.once) S.usedDay[a.k]=1;
+  beep(a.grp=='viet'?880:a.grp=='choi'?660:520,.08);
+}
+
+/* ============ EVENTS ============ */
+function checkStoryEvents(){
+  // Chương 1
+  if(S.ch==1){
+    if(S.day==1 && !S.flags.intro1){S.flags.intro1=1;showStory(`<h2>🌸 Ngày đầu ở Bắc Kinh</h2><div class="body">Vân Khánh xuống sân bay, kéo vali đến ký túc xá. Trời thu Bắc Kinh se lạnh. Cô đặt cuốn nhật ký mới tinh lên bàn, viết dòng đầu tiên:</div><div class="ev"><i>"Ngày 1 — con bắt đầu."</i></div><div class="mb"><button class="btn p" data-a="mx">Ừm.</button></div>`)}
+    if(S.day==3 && !S.flags.lost){S.flags.lost=1;S.money=Math.max(0,S.money-80);showStory(`<h2>😰 Mất ví</h2><div class="body">Vân Khánh bị mất ví ở tàu điện. Mất 80 NDT và thẻ sinh viên.</div><div class="ev">Hòa nghe tin liền cho vay tiền: <i>"Không sao đâu, từ từ trả."</i></div><div class="mb"><button class="btn p" data-a="mx">Cảm ơn Hòa.</button></div>`)}
+    if(S.day==5 && !S.flags.gv){S.flags.gv=1;showStory(`<h2>🧑‍🏫 Gặp giáo sư Trần</h2><div class="body">Giáo sư Trần gọi Vân Khánh lên văn phòng. Ông đẩy gọng kính, nhìn cô một lúc rồi nói:</div><div class="ev">"Đề tài của cô thú vị. Nhưng đừng để tôi thất vọng."</div><div class="mb"><button class="btn p" data-a="mx">Con sẽ cố gắng.</button></div>`)}
+    if(S.lu>=20 && !S.flags.midautumn){S.flags.midautumn=1;S.sp=cl(S.sp+15,0,100);showStory(`<h2>🌕 Tết Trung Thu</h2><div class="body">Bà chủ quán dưới nhà dúi cho Vân Khánh một chiếc bánh trung thu. Bà nói:</div><div class="ev">"Ăn đi con. Ở đây không có gia đình, bà là gia đình."</div><div class="mb"><button class="btn p" data-a="mx">Vâng ạ.</button></div>`)}
+    if(S.lu>=30 && !S.flags.hung){S.flags.hung=1;showStory(`<h2>🧑 Gặp Hưng ở thư viện</h2><div class="body">Hưng ngồi đối diện, đẩy sang một cuốn sách.</div><div class="ev">"Đọc cái này đi. Anh từng dùng cho luận văn. Có gì hỏi cứ nhắn."</div><div class="mb"><button class="btn p" data-a="mx">Cảm ơn anh Hưng.</button></div>`)}
+    if(S.lu>=50 && !S.flags.def1){S.flags.def1=1;showStory(`<h2>📖 Bảo vệ đề cương</h2><div class="body">Vân Khánh đứng trước hội đồng 5 người. Giáo sư Trần gật đầu.</div><div class="ev">Đề cương được duyệt.</div><div class="mb"><button class="btn p" data-a="mx">Tiếp tục viết.</button></div>`)}
+    if(S.lu>=100){
+      // sang chương 2
+      showChapter2();
+      return;
+    }
+  }
+  // Chương 2
+  if(S.ch==2){
+    if(S.day==1 && !S.flags.arriveSH){S.flags.arriveSH=1;showStory(`<h2>🚄 Lên Thượng Hải</h2><div class="body">Vân Khánh chuyển lên Thượng Hải, nhập học SISU. Thành phố lớn, đông người, nhưng cô thấy lòng nhẹ nhõm.</div><div class="ev">Luận văn tiến sĩ mới tinh. Lần này cô biết mình phải làm gì.</div><div class="mb"><button class="btn p" data-a="mx">Bắt đầu chương mới.</button></div>`)}
+    if(S.lu>=10 && !S.flags.tuyet){S.flags.tuyet=1;S.sp=cl(S.sp-10,0,100);showStory(`<h2>😐 Hàn Tuyết</h2><div class="body">Hàn Tuyết nói với mọi người trong lab rằng Vân Khánh "chỉ giỏi nhờ may mắn". Vân Khánh nghe được nhưng im lặng.</div><div class="ev">Cô tự nhủ: "Mình không cần chứng minh với ai cả."</div><div class="mb"><button class="btn p" data-a="mx">Kệ cô ấy.</button></div>`)}
+    if(S.lu>=20 && !S.flags.alexei){S.flags.alexei=1;showStory(`<h2>🧔 Alexei</h2><div class="body">Alexei, nghiên cứu sinh người Nga, tiến lại bắt chuyện.</div><div class="ev">"Cậu là người Việt đúng không? Tớ đang dịch Truyện Kiều. Cậu giúp tớ vài câu được không?"</div><div class="mb"><button class="btn p" data-a="mx">Được thôi.</button></div>`)}
+    if(S.lu>=40 && !S.flags.tet){S.flags.tet=1;S.sp=cl(S.sp-15,0,100);showStory(`<h2>🏮 Tết xa nhà</h2><div class="body">Đêm giao thừa. Mẹ gọi video, cả nhà quây quần bên mâm cơm. Vân Khánh cười, nhưng nước mắt chảy.</div><div class="ev">Mẹ nói: <i>"Ráng lên con. Mẹ chờ ngày con tốt nghiệp."</i></div><div class="mb"><button class="btn p" data-a="mx">Vâng mẹ.</button></div>`)}
+    if(S.lu>=60 && !S.flags.dad){S.flags.dad=1;S.sp=cl(S.sp-20,0,100);showStory(`<h2>📞 Bố ốm</h2><div class="body">Em gái nhắn tin: bố nhập viện. Không nặng, nhưng Vân Khánh không thể về.</div><div class="ev">Cô ngồi ngoài hành lang lab, khóc một mình.</div><div class="mb"><button class="btn p" data-a="mx">Cố lên.</button></div>`)}
+    if(S.lu>=80 && !S.flags.def2){S.flags.def2=1;showStory(`<h2>📖 Bảo vệ thử</h2><div class="body">Giáo sư Lý gật đầu: "Chương 3 và 4 ổn. Nhưng phần mở đầu cần viết lại."</div><div class="ev">Vân Khánh về nhà, viết lại từ đầu.</div><div class="mb"><button class="btn p" data-a="mx">Vâng.</button></div>`)}
+    if(S.lu>=100){
+      finishGrad();
+      return;
+    }
+  }
+}
+function showStory(html){
+  // Chèn vào modal nhưng KHÔNG block tick
+  modal(html);
+}
+function showChapter2(){
+  // reset chương, giữ tiền + KT
+  S.ch=2;
+  S.lu=0;
+  S.day=1;
+  S.t=0;
+  S.usedDay={};
+  S.flags={};
+  S.logDay=[];
+  S.hp=Math.min(100,S.hp+20);
+  S.sp=Math.min(100,S.sp+20);
+  S.hp=Math.max(S.hp,60);
+  S.sp=Math.max(S.sp,60);
+  S.money=Math.max(S.money,300);
+  const totalDays=S.rentPaid*7+S.day; // không chính xác lắm, dùng cách khác
+  // Lưu ch1Days bằng biến tạm
+  const ch1Days=window.__ch1Days||S.day;
+  window.__ch1Days=ch1Days;
+  showStory(`<div class="sp"><img src="icon-192.png" alt=""></div>
+  <h2>🎓 Hoàn thành thạc sĩ!</h2>
+  <div class="body">Vân Khánh bảo vệ luận văn thạc sĩ xuất sắc. Cô nhận được học bổng tiến sĩ ở <b>SISU Thượng Hải</b>.</div>
+  <div class="ev">Chương 1 mất <b>${ch1Days} ngày</b>.</div>
+  <div class="body">Một chương mới bắt đầu. Bố mẹ gọi điện chúc mừng, em gái hét lên trong điện thoại.</div>
+  <div class="mb"><button class="btn p" data-a="mx">Lên đường! 🚄</button></div>`);
+  drawAll();
+}
+function finishGrad(){
+  const totalDays=S.rentPaid*7+S.day;
+  const ch1=window.__ch1Days||S.day;
+  const ch2=totalDays-ch1;
+  recordFinish(totalDays,ch1,ch2);
+  S.endReason='grad';
+  save();
+  beep(1200,.5);
+  modal(`<div class="sp"><img src="icon-192.png" alt=""></div>
+  <h2>🎓 Lễ tốt nghiệp</h2>
+  <div class="body">
+  Vân Khánh bảo vệ luận án tiến sĩ tại SISU Thượng Hải thành công.
+  <br><br>
+  <b>Bố, mẹ và em gái từ Việt Nam bay sang dự lễ.</b> Mẹ mặc áo dài, khóc khi thấy con gái mặc áo tốt nghiệp. Bố im lặng nhưng mắt đỏ, vỗ vai con một cái thật chặt. Em gái chụp ảnh lia lịa, gọi video cho ông bà ở quê.
+  <br><br>
+  Giáo sư Lý gật đầu: <i>"Cô xứng đáng."</i>
+  </div>
+  <div class="ev">
+  Vân Khánh mở cuốn nhật ký, viết dòng cuối cùng:
+  <br><br>
+  <i>"Ngày ấy con hứa với mẹ — con làm được rồi."</i>
+  </div>
+  <div class="g2" style="margin-top:10px">
+    <span>Tổng số ngày</span><b>${totalDays}</b>
+    <span>Chương 1 (Thạc sĩ)</span><b>${ch1} ngày</b>
+    <span>Chương 2 (Tiến sĩ)</span><b>${ch2} ngày</b>
+  </div>
+  <div class="mb2">
+    <button class="btn" data-a="record">🏆 Kỷ lục</button>
+    <button class="btn p" data-a="restart">🔄 Chơi lại</button>
+  </div>
+  <div class="mb">
+    <button class="btn" data-a="save">💾 Lưu kỷ niệm</button>
+  </div>`);
+}
+function finishHome(){
+  if(!confirm('Vân Khánh gấp cuốn nhật ký, đặt bút xuống?\n\nKết thúc sớm — không tính vào kỷ lục.')) return;
+  if(!confirm('Chắc chắn chứ? Cậu sẽ không thấy được lễ tốt nghiệp.')) return;
+  S.endReason='home';
+  save();
+  modal(`<div class="sp"><img src="icon-192.png" alt=""></div>
+  <h2>🏠 Về nhà</h2>
+  <div class="body">
+  Vân Khánh gấp cuốn nhật ký, đặt bút xuống. Cô đặt vé máy bay về Việt Nam.
+  <br><br>
+  Có những giấc mơ không cần phải hoàn thành — chỉ cần mình biết mình đã cố gắng.
+  </div>
+  <div class="ev">
+  <i>— HẾT —</i>
+  </div>
+  <div class="mb2">
+    <button class="btn" data-a="record">🏆 Kỷ lục</button>
+    <button class="btn p" data-a="restart">🔄 Chơi lại</button>
+  </div>`);
+}
+
+/* ============ END DAY ============ */
+function endDay(){
+  // Trừ tiền nhà nếu đến hạn
+  const rent=(S.ch==1?RENT_C1:RENT_C2);
+  const nextDay=S.day+1;
+  if(nextDay%7==1 && S.day>=7){
+    // trả tiền nhà
+    if(S.money<rent){
+      // thua
+      S.endReason='evicted';
+      save();
+      modal(`<h2>💸 Hết tiền</h2>
+      <div class="body">Vân Khánh không trả nổi tiền nhà. Chủ nhà đuổi cô ra khỏi phòng.</div>
+      <div class="ev">Cô ngồi trước cổng trường, kéo vali, không biết đi đâu.</div>
+      <div class="mb2">
+        <button class="btn" data-a="record">🏆 Kỷ lục</button>
+        <button class="btn p" data-a="restart">🔄 Chơi lại</button>
+      </div>`);
+      return;
+    }
+    S.money-=rent;
+    S.rentPaid++;
+    addLog(`💸 Trả tiền nhà ${rent} NDT`);
+  }
+  // sang ngày
+  S.day++;
+  S.t=0;
+  S.usedDay={};
+  S.logDay=[];
+  // HP, SP hồi nhẹ khi qua ngày
+  S.hp=cl(S.hp+2,0,100);
+  S.sp=cl(S.sp+2,0,100);
+  if(S.hp<=0){
+    // nhập viện - mất 3 ngày
+    S.hp=30;
+    S.day+=3;
+    S.money=Math.max(0,S.money-100);
+    toast('🏥 Nhập viện 3 ngày');
+  }
+  save();
+  drawAll();
+  // sự kiện
+  checkStoryEvents();
+}
+function doAct(k){
+  if(T.modal) return;
+  const a=ACTS.find(x=>x.k==k);
+  if(!a) return;
+  // check
+  if(a.h>24-S.t) return toast('⏰ Không đủ thời gian cho hành động này');
+  if(a.need=='hpLow' && S.hp>=20) return toast('Bạn vẫn khỏe mà');
+  if(a.once && isOnce(a.k)) return toast('Hôm nay đã làm rồi');
+  if(a.k=='wr' && (S.hp<30||S.sp<30)) return toast('Cần HP và SP ≥ 30 mới viết được');
+  if(a.m<0 && S.money< -a.m) return toast('Không đủ tiền');
+  if(a.k=='wr' && S.lu>=100) return;
+
+  applyAct(a);
+  drawHead();drawScene();drawActs();
+
+  if(S.t>=24){
+    endDay();
+    return;
+  }
+  checkStoryEvents();
+}
+
+/* ============ SHEET ============ */
+function openLog(){
+  T.sheet='log';
+  $('#sht').textContent='📖 Nhật ký';
+  const arr=S.logAll.slice(-80).reverse();
+  $('#shb').innerHTML=arr.length
+    ? arr.map(x=>`<div class="it"><div class="m"><b>Ngày ${x.d}</b><small>${x.s}</small></div></div>`).join('')
+    : '<div class="sm mu">Chưa có gì.</div>';
+  $('#sheet').classList.remove('hide');
+}
+function openRecord(){
+  T.sheet='record';
+  $('#sht').textContent='🏆 Kỷ lục';
+  const r=getRecords();
+  const finishes=(r.finishes||[]).slice().reverse().slice(0,5);
+  $('#shb').innerHTML=`
+    <div class="ev"><b>Kỷ lục tốt nhất</b>
+    <div class="g2" style="margin-top:6px">
+      <span>🥇 Chương 1 nhanh nhất</span><b>${r.best1?r.best1+' ngày':'—'}</b>
+      <span>🥇 Chương 2 nhanh nhất</span><b>${r.best2?r.best2+' ngày':'—'}</b>
+      <span>🥇 Tổng nhanh nhất</span><b>${r.bestTotal?r.bestTotal+' ngày':'—'}</b>
+    </div></div>
+    <h3>Lần chơi gần đây</h3>
+    ${finishes.length? finishes.map(f=>`<div class="it"><div class="m"><b>Tổng ${f.d} ngày</b><small>C1: ${f.ch1} ngày · C2: ${f.ch2} ngày</small></div></div>`).join('') : '<div class="sm mu">Chưa hoàn thành lần nào.</div>'}
+    <h3>💾 Save</h3>
+    <div class="bs" style="margin-bottom:8px">
+      <button class="b2 p" data-a="save">💾 Lưu</button>
+      <button class="b2 ${hasSlot()?'g':''}" data-a="load" ${hasSlot()?'':'disabled'}>📂 Tải</button>
+      <button class="b2" data-a="export">⬇️ Xuất</button>
+      <button class="b2" data-a="import">⬆️ Nhập</button>
+    </div>
+    <div class="bs" style="margin-top:8px">
+      <button class="b2" data-a="snd">🔊 Âm thanh: ${S.snd?'Bật':'Tắt'}</button>
+      <button class="b2" data-a="help">❓ Cách chơi</button>
+      <button class="b2" data-a="wipeslot">🗑️ Xoá save</button>
+      <button class="b2" data-a="restart">💥 Chơi lại</button>
+    </div>`;
+  $('#sheet').classList.remove('hide');
+}
+function reSheet(){if(T.sheet) openSheet(T.sheet)}
+
+/* ============ ACTIONS DISPATCH ============ */
+document.addEventListener('click',e=>{
+  const el=e.target.closest('[data-a]');
+  if(!el) return;
+  const a=el.dataset.a,k=el.dataset.k;
+  switch(a){
+    case 'do':doAct(k);break;
+    case 'pause':T.pause^=1;$('#pause').textContent=T.pause?'▶':'⏸';break;
+    case 'log':openSheet('log');break;
+    case 'record':openSheet('record');break;
+    case 'home':finishHome();break;
+    case 'closeSheet':closeSheet();break;
+    case 'mx':mclose();break;
+    case 'help':closeSheet();modal(HELP);break;
+    case 'save':manualSave();reSheet();break;
+    case 'load':manualLoad();break;
+    case 'export':exportSave();break;
+    case 'import':importSave();break;
+    case 'snd':S.snd^=1;save();reSheet();break;
+    case 'wipeslot':
+      if(!hasSlot()) return toast('📭 Chưa có save');
+      if(confirm('Xoá save thủ công?')){deleteSlot();toast('🗑️ Đã xoá');reSheet()}
+      break;
+    case 'restart':
+      if(!confirm('Chơi lại từ đầu? Mọi tiến trình sẽ mất.')) return;
+      localStorage.removeItem(KEY);
+      location.reload();
+      break;
+  }
+});
+$('#sheet').addEventListener('click',e=>{
+  if(e.target.id=='sheet') closeSheet();
+});
+
+/* ============ LOOP — tối ưu ============ */
+let rafId=0;
+let lastUI=0;
+function loop(now){
+  rafId=requestAnimationFrame(loop);
+  const dt=Math.min(.1,(now-T.now)/1000);
+  T.now=now;
+  if(!T.pause && !T.modal && S.hp>0 && S.lu<100){
+    T.acc+=dt*HOUR_SEC;      // 1 giây thực = 0.1 giờ game
+    if(T.acc>=.1){
+      S.t+=T.acc;
+      T.acc=0;
+      if(S.t>=24){S.t=24;endDay()}
+    }
+    // autosave
+    if((T.sv+=dt)>10){T.sv=0;save()}
+  }
+  // UI 3fps
+  if(now-lastUI>333){
+    lastUI=now;
+    // chỉ update đồng hồ + mood + nút (nhẹ)
+    if(!T.modal){
+      $('#timeV').textContent=fmtTime(S.t);
+      $('#mood').textContent=moodText();
+      $('#hpB').style.width=S.hp+'%';
+      $('#lvB').style.width=S.lu+'%';
+      $('#hpLbl').textContent='HP '+Math.round(S.hp);
+      $('#lvLbl').textContent='Luận văn '+S.lu.toFixed(1)+'%';
+      // refresh nút khi cần (mỗi 3fps)
+      drawActs();
+    }
+  }
+}
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden){
+    if(rafId){cancelAnimationFrame(rafId);rafId=0}
+    if(AC) AC.suspend();
+  } else if(!rafId){
+    T.now=performance.now();T.acc=0;
+    if(AC) AC.resume();
+    rafId=requestAnimationFrame(loop);
+  }
+});
+
+/* ============ KICKOFF ============ */
+window.__ch1Days=null;
+drawAll();
+if(!S.seen){
+  S.seen=1;save();
+  modal(INTRO);
+  modal(HELP);
+}
+requestAnimationFrame(loop);
+if('serviceWorker'in navigator&&location.protocol.startsWith('http'))
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>

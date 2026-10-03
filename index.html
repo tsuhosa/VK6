@@ -20,18 +20,12 @@
   --ink:#1a1428;
   --ink2:#3a2a4a;
   --mu:#8a7a9a;
-  --cream:#fffaf0;
   --pink:#ffc6dd;
-  --pink2:#ff9bbf;
   --rose:#ff6b9d;
   --lav:#c9b6f0;
-  --lav2:#a890e0;
   --mint:#a8e6d0;
-  --mint2:#7ecbaf;
   --honey:#ffe4a8;
-  --honey2:#ffd070;
   --shadow:3px 3px 0 var(--ink);
-  --shadow-sm:2px 2px 0 var(--ink);
   --radius:12px;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
@@ -55,7 +49,7 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
   position:relative;
 }
 
-/* ============ HEADER ============ */
+/* ===== HEADER ===== */
 #hd{
   position:relative;border-radius:var(--radius);
   border:2px solid var(--ink);
@@ -85,8 +79,6 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
   letter-spacing:1.5px;font-weight:700;margin-top:1px;
   color:#fff;text-shadow:1px 1px 0 rgba(26,20,40,.5);
 }
-
-/* ============ STATS ROW ============ */
 .stats-row{
   display:grid;grid-template-columns:repeat(4,1fr);
   gap:5px;padding:8px 10px 4px;
@@ -102,22 +94,16 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
   min-width:0;
 }
 .stat b{font-weight:400;font-size:14px;line-height:1}
-
-/* ============ BARS ============ */
 .bars{padding:2px 10px 10px;display:grid;gap:5px}
 .bar-w{
-  position:relative;
-  height:20px;
-  border:2px solid var(--ink);
-  border-radius:8px;
-  background:#fff;
-  overflow:hidden;
+  position:relative;height:20px;
+  border:2px solid var(--ink);border-radius:8px;
+  background:#fff;overflow:hidden;
   box-shadow:1.5px 1.5px 0 var(--ink);
 }
 .bar-w i{
   position:absolute;left:0;top:0;bottom:0;
-  display:block;width:0;
-  transition:width .35s;
+  display:block;width:0;transition:width .35s;
 }
 .bar-w.hp i{background:linear-gradient(90deg,#ffb3c1,#ff6b9d)}
 .bar-w.lu i{background:linear-gradient(90deg,#c9b6f0,#a890e0)}
@@ -125,27 +111,23 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
   position:absolute;inset:0;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 8px;
-  font-size:10.5px;font-weight:800;
-  color:var(--ink);
-  text-shadow:0 0 3px rgba(255,255,255,.9),0 0 6px rgba(255,255,255,.7);
-  letter-spacing:.2px;
+  font-size:10.5px;font-weight:800;color:var(--ink);
+  text-shadow:0 0 3px rgba(255,255,255,.9);
 }
 
-/* ============ EVENT NOTICE ============ */
+/* ===== EVENT NOTICE ===== */
 #evNotice{
   display:none;
   margin:8px 10px 0;
   padding:8px 10px;
-  border:2px solid var(--ink);
-  border-radius:10px;
+  border:2px solid var(--ink);border-radius:10px;
   background:linear-gradient(180deg,#fff3c9,#ffe0a0);
   box-shadow:2px 2px 0 var(--ink);
-  font-size:11.5px;color:var(--ink);font-weight:700;
-  line-height:1.5;
+  font-size:11.5px;color:var(--ink);font-weight:700;line-height:1.5;
 }
 #evNotice.on{display:block}
 #evNotice .row1{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:4px}
-#evNotice .city{font-size:13px;font-weight:800;color:var(--ink)}
+#evNotice .city{font-size:13px;font-weight:800}
 #evNotice .short{color:#c92e72;font-weight:800}
 #evNotice .btns{display:flex;gap:5px;margin-top:5px}
 #evNotice .btns button{
@@ -158,39 +140,24 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 #evNotice .btns .no{background:linear-gradient(180deg,#fff,#f0eaff)}
 #evNotice .btns button:disabled{opacity:.5;filter:grayscale(.5)}
 
-/* ============ SCENE ============ */
+/* ===== SCENE ===== */
 #scene{
   position:relative;overflow:hidden;
   display:flex;flex-direction:column;
-  border:2px solid var(--ink);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  min-height:0;
-  background:#fff;
+  border:2px solid var(--ink);border-radius:var(--radius);
+  box-shadow:var(--shadow);min-height:0;background:#fff;
 }
 .ch1 #scene{background:linear-gradient(180deg,#ffe9c9 0 40px,#fff8ee 40px)}
 .ch2 #scene{background:linear-gradient(180deg,#a8c8e8 0 40px,#f0f8ff 40px)}
-
-#top-info{
-  text-align:center;
-  padding:8px 12px 6px;
-}
-#top-info .date{
-  font-family:"Comfortaa",sans-serif;
-  font-size:14px;font-weight:700;color:var(--ink);
-}
-#top-info .weekday{
-  font-size:11px;font-weight:700;color:var(--ink2);margin-top:1px;
-}
+#top-info{text-align:center;padding:8px 12px 6px}
+#top-info .date{font-family:"Comfortaa",sans-serif;font-size:14px;font-weight:700}
+#top-info .weekday{font-size:11px;font-weight:700;color:var(--ink2);margin-top:1px}
 #top-info .period{
-  display:inline-block;margin-top:6px;
-  padding:4px 16px;
-  border:2px solid var(--ink);
-  border-radius:20px;
+  display:inline-block;margin-top:6px;padding:4px 16px;
+  border:2px solid var(--ink);border-radius:20px;
   background:rgba(255,255,255,.85);
-  font-size:12px;font-weight:800;color:var(--ink);
+  font-size:12px;font-weight:800;
   box-shadow:1.5px 1.5px 0 var(--ink);
-  letter-spacing:.3px;
 }
 #avatar-w{
   flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -206,58 +173,42 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
   font-size:12px;font-weight:700;color:var(--ink);
   text-align:center;padding:4px 14px;
   background:rgba(255,255,255,.85);
-  border:2px solid var(--ink);
-  border-radius:20px;
+  border:2px solid var(--ink);border-radius:20px;
   box-shadow:1.5px 1.5px 0 var(--ink);
   max-width:92%;
 }
 #log{
-  margin:6px 10px 10px;
-  padding:6px 10px;
+  margin:6px 10px 10px;padding:6px 10px;
   background:rgba(255,255,255,.9);
-  border:1.5px solid var(--ink);
-  border-radius:10px;
-  font-size:11px;color:var(--ink);
-  line-height:1.5;
+  border:1.5px solid var(--ink);border-radius:10px;
+  font-size:11px;color:var(--ink);line-height:1.5;
   max-height:70px;overflow:hidden;min-height:42px;
   box-shadow:1.5px 1.5px 0 var(--ink);
 }
 #log .ln{display:block}
 #log .ln::before{content:"· ";opacity:.5;font-weight:800}
 
-/* ============ ACTION PANEL ============ */
+/* ===== ACTION PANEL ===== */
 #acts-wrap{
-  border:2px solid var(--ink);
-  border-radius:var(--radius);
-  background:#fff;
-  box-shadow:var(--shadow);
-  padding:10px;
-  position:relative;
+  border:2px solid var(--ink);border-radius:var(--radius);
+  background:#fff;box-shadow:var(--shadow);padding:10px;
 }
 #period-lbl{
-  text-align:center;
-  font-size:11.5px;font-weight:800;
-  color:var(--ink);
-  letter-spacing:.5px;
-  margin-bottom:8px;
-  padding-bottom:6px;
+  text-align:center;font-size:11.5px;font-weight:800;
+  letter-spacing:.5px;margin-bottom:8px;padding-bottom:6px;
   border-bottom:1.5px dashed rgba(26,20,40,.3);
 }
 #acts{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:7px;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;
 }
 .act{
   position:relative;
-  border:2px solid var(--ink);
-  border-radius:10px;
+  border:2px solid var(--ink);border-radius:10px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   font-weight:800;font-size:11.5px;line-height:1.15;
   height:clamp(58px,7.4vh,70px);
   background:linear-gradient(180deg,#fff,#f5f0ff);
-  color:var(--ink);
-  padding:3px;
+  color:var(--ink);padding:3px;
   box-shadow:2px 2px 0 var(--ink);
   transition:transform .1s;
 }
@@ -265,61 +216,48 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 .act span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .act small{
   position:absolute;top:2px;right:5px;
-  font-size:8.5px;font-weight:800;
-  padding:1px 5px;
-  border:1.5px solid var(--ink);
-  border-radius:6px;
-  background:rgba(255,255,255,.9);
-  color:var(--ink);
+  font-size:8.5px;font-weight:800;padding:1px 5px;
+  border:1.5px solid var(--ink);border-radius:6px;
+  background:rgba(255,255,255,.9);color:var(--ink);
 }
 .act:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
 .act.dis{opacity:.42;filter:grayscale(.7)}
-
-.act.an{background:linear-gradient(180deg,#ffd1dc,#ffb3c6)}
+.act.eaten{background:linear-gradient(180deg,#e8e2f0,#d8d0e5);color:var(--mu);text-decoration:line-through}
 .act.hoc{background:linear-gradient(180deg,#c9f2df,#a8e6d0)}
 .act.lam{background:linear-gradient(180deg,#ffeec4,#ffe4a8)}
 .act.viet{background:linear-gradient(180deg,#a8e6d0,#7ecbaf);color:#fff}
 .act.choi{background:linear-gradient(180deg,#ffc6dd,#ff9bbf);color:#fff}
 .act.sleep{background:linear-gradient(180deg,#c9b6f0,#a890e0);color:#fff}
 
-/* Nút next buổi */
 #nextBtn{
-  width:100%;
-  margin-top:8px;
-  padding:11px;
-  border:2px solid var(--ink);
-  border-radius:10px;
+  width:100%;margin-top:8px;padding:11px;
+  border:2px solid var(--ink);border-radius:10px;
   font-family:"Comfortaa",sans-serif;
   font-size:13px;font-weight:800;
   background:linear-gradient(180deg,#a8e6d0,#7ecbaf);
-  color:#fff;
-  text-shadow:1px 1px 0 rgba(26,20,40,.4);
+  color:#fff;text-shadow:1px 1px 0 rgba(26,20,40,.4);
   box-shadow:2px 2px 0 var(--ink);
   letter-spacing:.5px;
 }
 #nextBtn:disabled{
   background:linear-gradient(180deg,#e8e2f0,#d8d0e5);
-  color:var(--mu);
-  text-shadow:none;
-  opacity:.7;
+  color:var(--mu);text-shadow:none;opacity:.7;
 }
 #nextBtn:not(:disabled):active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
 
-/* ============ FAB NGỦ ============ */
+/* ===== FAB NGỦ ===== */
 #sleepFab{
   position:fixed;
-  right:calc(50% - 240px + 14px);
-  bottom:calc(env(safe-area-inset-bottom) + 90px);
+  right:14px;
+  bottom:calc(env(safe-area-inset-bottom) + 110px);
   width:56px;height:56px;
   border-radius:50%;
   border:2px solid var(--ink);
   background:linear-gradient(180deg,#c9b6f0,#a890e0);
-  color:#fff;
-  font-size:24px;
+  color:#fff;font-size:24px;
   display:grid;place-items:center;
   box-shadow:3px 3px 0 var(--ink);
-  z-index:20;
-  transition:transform .15s;
+  z-index:20;transition:transform .15s;
 }
 #sleepFab:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
 #sleepFab::after{
@@ -331,29 +269,21 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 @media (min-width:520px){
   #sleepFab{right:calc(50% - 240px + 14px)}
 }
-@media (max-width:519px){
-  #sleepFab{right:14px}
-}
 
-/* ============ NAV ============ */
-#nav{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:7px;
-}
+/* ===== NAV ===== */
+#nav{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
 #nav button{
-  border:2px solid var(--ink);
-  border-radius:10px;
-  font-size:11px;font-weight:800;
-  padding:9px 4px;
+  border:2px solid var(--ink);border-radius:10px;
+  font-size:11px;font-weight:800;padding:9px 4px;
   display:flex;flex-direction:column;align-items:center;gap:2px;
   background:linear-gradient(180deg,#fff,#f5eeff);
-  color:var(--ink);
-  box-shadow:2px 2px 0 var(--ink);
+  color:var(--ink);box-shadow:2px 2px 0 var(--ink);
   font-family:"Comfortaa","Quicksand",sans-serif;
 }
 #nav button b{font-size:17px;line-height:1;font-weight:400}
 #nav button:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
 
-/* ============ SHEET / MODAL ============ */
+/* ===== SHEET / MODAL ===== */
 #sheet{
   position:fixed;inset:0;z-index:50;background:rgba(26,20,40,.55);
   display:flex;align-items:flex-end;justify-content:center;
@@ -364,8 +294,7 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
   border:2px solid var(--ink);border-bottom:0;
   border-radius:20px 20px 0 0;
   padding:14px 16px calc(env(safe-area-inset-bottom) + 18px);
-  background:#fff;
-  box-shadow:0 -6px 0 var(--ink);
+  background:#fff;box-shadow:0 -6px 0 var(--ink);
   animation:sup .28s cubic-bezier(.2,1.3,.5,1);
 }
 @keyframes sup{from{transform:translateY(100%)}}
@@ -378,7 +307,6 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 .shh b{flex:1}
 h3{
   margin:14px 0 6px;font-size:13.5px;font-weight:800;
-  color:var(--ink);
   display:flex;align-items:center;gap:6px;
   font-family:"Comfortaa",sans-serif;
 }
@@ -386,10 +314,8 @@ h3::before{content:"✿";color:var(--rose);font-size:16px}
 .it{
   display:flex;align-items:center;gap:10px;
   padding:8px 10px;
-  border:1.5px solid var(--ink);
-  border-radius:9px;
-  background:#fff;
-  box-shadow:1.5px 1.5px 0 var(--ink);
+  border:1.5px solid var(--ink);border-radius:9px;
+  background:#fff;box-shadow:1.5px 1.5px 0 var(--ink);
   margin-bottom:6px;
 }
 .it .m{flex:1;min-width:0}
@@ -400,8 +326,7 @@ h3::before{content:"✿";color:var(--rose);font-size:16px}
   border:2px solid var(--ink);border-radius:9px;
   padding:7px 12px;font-weight:800;font-size:12px;white-space:nowrap;
   background:linear-gradient(180deg,#fff,#f0eaff);
-  color:var(--ink);
-  box-shadow:2px 2px 0 var(--ink);
+  color:var(--ink);box-shadow:2px 2px 0 var(--ink);
 }
 .b2.p{background:linear-gradient(180deg,#ffb3d1,#ff8fb8);color:#fff;text-shadow:1px 1px 0 rgba(26,20,40,.3)}
 .b2.g{background:linear-gradient(180deg,#a8e6d0,#7ecbaf);color:#fff;text-shadow:1px 1px 0 rgba(26,20,40,.3)}
@@ -416,17 +341,14 @@ h3::before{content:"✿";color:var(--rose);font-size:16px}
 .bx{
   width:100%;max-width:420px;max-height:88vh;overflow:auto;
   border:2px solid var(--ink);border-radius:18px;
-  padding:20px;
-  background:#fff;
+  padding:20px;background:#fff;
   box-shadow:6px 6px 0 var(--ink);
   animation:pp .28s cubic-bezier(.2,1.3,.5,1);
 }
 @keyframes pp{from{transform:scale(.88);opacity:0}}
 .bx h2{
   margin:0 0 12px;text-align:center;font-size:19px;
-  color:var(--ink);
-  padding-bottom:8px;
-  border-bottom:2px dashed rgba(26,20,40,.35);
+  padding-bottom:8px;border-bottom:2px dashed rgba(26,20,40,.35);
   font-family:"Comfortaa",sans-serif;
 }
 .bx .body{font-size:13px;line-height:1.6}
@@ -446,7 +368,6 @@ h3::before{content:"✿";color:var(--rose);font-size:16px}
   border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);
   background:#ffc6dd;
 }
-
 #toast{
   position:fixed;left:50%;top:22%;transform:translateX(-50%);
   z-index:70;display:grid;gap:6px;width:min(92vw,420px);pointer-events:none;
@@ -497,7 +418,7 @@ h3::before{content:"✿";color:var(--rose);font-size:16px}
   </section>
 
   <div id="acts-wrap">
-    <div id="period-lbl">CHỌN HÀNH ĐỘNG · BUỔI SÁNG</div>
+    <div id="period-lbl">BUỔI SÁNG · Chọn 1 hành động</div>
     <div id="acts"></div>
     <button id="nextBtn" data-a="next" disabled>➡️ SANG BUỔI CHIỀU</button>
     <nav id="nav">
@@ -520,33 +441,39 @@ const $=s=>document.querySelector(s);
 const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
 const F=n=>Math.round(n).toLocaleString('vi-VN');
 
-const KEY='vkdiary_v5';
-const SLOT='vkdiary_slot_v5';
-const REC_KEY='vkdiary_rec_v5';
-const SAVE_VER=5;
+const KEY='vkdiary_v6';
+const SLOT='vkdiary_slot_v6';
+const REC_KEY='vkdiary_rec_v6';
+const SAVE_VER=6;
 const RENT=1000;
 const SCHOLAR=[0,2500,3500];
 const START_MONEY=500;
+const MAX_WEEKS=[0,36,72];        // [_ , thạc sĩ 36 tuần, tiến sĩ 72 tuần]
+const WRITE_RATE=[0,5,4];          // %/lần viết cho từng chương
 
 const WD=['Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy','Chủ Nhật'];
 const PERIODS=['🌅 Buổi sáng','☀️ Buổi chiều','🌙 Buổi tối'];
+const EAT_LABELS=[
+  {k:'eat0', n:'Ăn sáng', e:'🍚', m:-5,  hp:8,  sp:3, p:0},
+  {k:'eat1', n:'Ăn trưa', e:'🍜', m:-8,  hp:12, sp:4, p:1},
+  {k:'eat2', n:'Ăn tối',  e:'🍲', m:-8,  hp:12, sp:4, p:2}
+];
 
-/* ===== HÀNH ĐỘNG ===== */
-/* p: 0=sáng, 1=chiều, 2=tối */
+/* Hành động (không có ăn — ăn mặc định) */
 const ACTS=[
-  {k:'s_an', n:'Ăn sáng', e:'🍚', p:0, hp:8, sp:3, m:-5, grp:'an'},
+  /* 🌅 SÁNG */
   {k:'s_tv', n:'Thư viện', e:'📚', p:0, hp:-6, sp:-12, kt:18, grp:'hoc'},
   {k:'s_tt', n:'Học tiếng', e:'🀄', p:0, hp:-4, sp:-8, kt:6, grp:'hoc'},
   {k:'s_ts', n:'Pha trà sữa', e:'🧋', p:0, hp:-8, sp:-10, m:45, grp:'lam'},
   {k:'s_ng', n:'Ngủ nướng', e:'😴', p:0, hp:10, sp:15, grp:'ngu'},
 
-  {k:'c_an', n:'Ăn trưa', e:'🍜', p:1, hp:12, sp:4, m:-8, grp:'an'},
+  /* ☀️ CHIỀU */
   {k:'c_wr', n:'Viết luận', e:'✍️', p:1, hp:-10, sp:-15, lu:1, grp:'viet'},
   {k:'c_gv', n:'Gặp GV', e:'🧑‍🏫', p:1, hp:-3, sp:-5, kt:3, lu:2, grp:'viet'},
   {k:'c_ta', n:'Trợ giảng', e:'🎓', p:1, hp:-10, sp:-10, m:75, grp:'lam'},
   {k:'c_cf', n:'Đi cafe', e:'☕', p:1, hp:-2, sp:18, m:-25, grp:'choi'},
 
-  {k:'t_an', n:'Ăn tối', e:'🍲', p:2, hp:12, sp:4, m:-8, grp:'an'},
+  /* 🌙 TỐI */
   {k:'t_dh', n:'Dạy online', e:'💻', p:2, hp:-10, sp:-12, m:70, grp:'lam'},
   {k:'t_goi',n:'Gọi nhà', e:'📞', p:2, hp:0, sp:25, m:-5, grp:'choi'},
   {k:'t_pho',n:'Đi phố', e:'🚶', p:2, hp:-4, sp:22, m:-40, grp:'choi'},
@@ -557,10 +484,9 @@ const ACTS=[
 const D0=()=>({
   day:1,week:1,ch:1,period:0,hp:80,sp:70,kt:5,lu:0,
   money:START_MONEY,
+  ateInPeriod:false,
   actedInPeriod:false,
-  usedDay:{},
-  flags:{},
-  logDay:[], logWeek:[], logMonth:[], logAll:[],
+  logDay:[], logWeek:[], logAll:[],
   event:null,
   seen:0, snd:1, endReason:''
 });
@@ -723,13 +649,12 @@ function drawHead(){
   setTxt('hpLbl',Math.round(S.hp)+' / 100');
   setTxt('lvLbl',S.lu.toFixed(1)+'%');
 }
-
 function drawScene(){
-  setTxt('dateV',`Ngày ${S.day} · Tuần ${S.week}`);
-  setTxt('weekV',WD[(S.day-1)%7]);
+  const weeksLeft=MAX_WEEKS[S.ch]-S.week+1;
+  setTxt('dateV',`Ngày ${S.day} · Tuần ${S.week}/${MAX_WEEKS[S.ch]}`);
+  setTxt('weekV',WD[(S.day-1)%7]+` · còn ${weeksLeft} tuần`);
   setTxt('periodV',PERIODS[S.period]);
   setTxt('mood',moodText());
-  // log
   const lines=S.logDay.slice(-3);
   const logEl=$('#log');
   const html=lines.length
@@ -737,7 +662,6 @@ function drawScene(){
     : '<span class="ln" style="opacity:.55">Nhật ký sẽ ghi lại ở đây...</span>';
   if(logEl._h!==html){logEl._h=html;logEl.innerHTML=html}
 
-  // event notice
   const nEl=$('#evNotice');
   if(S.event){
     const days=Math.max(0,S.event.triggerDay-S.day);
@@ -750,7 +674,7 @@ function drawScene(){
         <span>còn ${days} ngày</span>
       </div>
       <div>Cần: <b>${F(S.event.cost)} tệ</b> ${canGo?'':`· <span class="short">thiếu ${F(short)} tệ</span>`}</div>
-      <div style="font-size:10.5px;opacity:.8;margin-top:2px">Phần thưởng: +${S.event.kt} KT · +${S.event.lu}% luận · +${S.event.sp} SP</div>
+      <div style="font-size:10.5px;opacity:.8;margin-top:2px">Thưởng: +${S.event.kt} KT · +${S.event.lu}% luận · +${S.event.sp} SP</div>
       <div class="btns">
         <button class="go" data-a="evGo" ${canGo?'':'disabled'}>Đi</button>
         <button class="no" data-a="evNo">Không đi</button>
@@ -763,33 +687,46 @@ function drawActs(){
   const list=ACTS.filter(a=>a.p==period);
   const done=S.actedInPeriod;
 
-  const periodName=['SÁNG','CHIỀU','TỐI'][period];
-  setTxt('period-lbl','CHỌN HÀNH ĐỘNG · BUỔI '+periodName);
+  setTxt('period-lbl',`BUỔI ${['SÁNG','CHIỀU','TỐI'][period]} · Chọn 1 hành động`);
 
+  // Ăn mặc định đầu buổi
+  const eat=EAT_LABELS[period];
+  const eatDone=S.ateInPeriod;
   const html=[];
+
+  // Nút ăn — luôn hiện đầu tiên
+  let eatCls='an';
+  if(eatDone) eatCls+=' eaten';
+  if(eatDone || done) eatCls+=' dis';
+  const eatCanDo=!eatDone && !done;
+  const eatM=eat.m;
+  const canAfford=S.money >= -eatM;
+  if(!canAfford) eatCls+=' dis';
+  const eatEff=`${eatM} tệ · +${eat.hp}HP +${eat.sp}SP`;
+  html.push(`<button class="act ${eatCls}" data-a="eat" data-k="${eat.k}" ${(eatCanDo&&canAfford)?'':'disabled'}>
+    <b>${eat.e}</b><span>${eat.n}</span><small>${eatDone?'Đã ăn':eatM}</small>
+  </button>`);
+
+  // Các hành động khác
   for(let i=0;i<list.length;i++){
     const a=list[i];
-    let dis=false;
-    const clsMap={an:'an',hoc:'hoc',lam:'lam',viet:'viet',choi:'choi',ngu:'sleep'};
+    const clsMap={hoc:'hoc',lam:'lam',viet:'viet',choi:'choi',ngu:'sleep'};
     let cls=clsMap[a.grp]||'';
+    let dis=false;
+    if(!eatDone && !done) dis=true;  // phải ăn trước
     if(done) dis=true;
-    if(a.usedDay && S.usedDay[a.k]) dis=true;
     if(a.k=='c_wr' && (S.hp<30||S.sp<30)) dis=true;
     if(a.m<0 && S.money<-a.m) dis=true;
     if(a.k=='c_wr' && S.lu>=100) dis=true;
     if(dis) cls+=' dis';
-
-    // hiệu ứng phụ
     let eff='';
     if(a.m) eff=(a.m>0?'+':'')+a.m;
     else if(a.kt) eff='+'+a.kt+'KT';
     else if(a.lu) eff='+'+a.lu+'%';
-    else if(a.hp&&a.sp) eff=`+${a.hp}HP +${a.sp}SP`;
-    else if(a.hp) eff=(a.hp>0?'+':'')+a.hp+'HP';
-    else if(a.sp) eff=(a.sp>0?'+':'')+a.sp+'SP';
-    const effHtml=eff?`<small>${eff}</small>`:'';
-
-    html.push(`<button class="act ${cls}" data-a="do" data-k="${a.k}"><b>${a.e}</b><span>${a.n}</span>${effHtml}</button>`);
+    else if(a.hp&&a.sp) eff=`${a.hp}HP ${a.sp}SP`;
+    html.push(`<button class="act ${cls}" data-a="do" data-k="${a.k}" ${dis?'disabled':''}>
+      <b>${a.e}</b><span>${a.n}</span>${eff?`<small>${eff}</small>`:''}
+    </button>`);
   }
   const actsEl=$('#acts');
   const h=html.join('');
@@ -797,12 +734,10 @@ function drawActs(){
 
   // next button
   const nb=$('#nextBtn');
-  const nextLabel=['➡️ SANG BUỔI CHIỀU','➡️ SANG BUỔI TỐI','➡️ KẾT THÚC NGÀY'][period];
   if(period==2) nb.textContent='🌙 KẾT THÚC NGÀY';
-  else nb.textContent=nextLabel;
+  else nb.textContent='➡️ SANG BUỔI '+['CHIỀU','TỐI'][period];
   nb.disabled=!done;
 }
-
 function drawAll(){drawHead();drawScene();drawActs()}
 
 function addLog(s){
@@ -814,7 +749,32 @@ function addLog(s){
 
 function lowEff(){return (S.hp<30||S.sp<30)?0.5:1}
 
-function applyAct(a){
+/* Ăn */
+function doEat(k){
+  if(T.modal) return;
+  if(S.ateInPeriod || S.actedInPeriod) return toast('Buổi này đã ăn rồi');
+  const eat=EAT_LABELS[S.period];
+  if(S.money<-eat.m) return toast('Không đủ tiền ăn');
+  S.money+=eat.m;
+  S.hp=cl(S.hp+eat.hp,0,100);
+  S.sp=cl(S.sp+eat.sp,0,100);
+  S.ateInPeriod=true;
+  addLog(`${eat.e} ${eat.n}: +${eat.hp}HP +${eat.sp}SP`);
+  beep(520,.08);
+  save();drawAll();
+}
+
+/* Hành động khác */
+function doAct(k){
+  if(T.modal) return;
+  if(S.actedInPeriod) return toast('Buổi này đã làm rồi');
+  if(!S.ateInPeriod) return toast('Phải ăn trước đã');
+  const a=ACTS.find(x=>x.k==k);
+  if(!a) return;
+  if(a.k=='c_wr' && (S.hp<30||S.sp<30)) return toast('Cần HP, SP ≥ 30');
+  if(a.m<0 && S.money<-a.m) return toast('Không đủ tiền');
+  if(a.k=='c_wr' && S.lu>=100) return;
+
   const eff=lowEff();
   if(a.hp) S.hp=cl(S.hp+Math.round(a.hp*eff),0,100);
   if(a.sp) S.sp=cl(S.sp+Math.round(a.sp*eff),0,100);
@@ -822,10 +782,13 @@ function applyAct(a){
   if(a.kt){
     const g=Math.round(a.kt*eff);
     S.kt+=g;
-    addLog(`${a.e} ${a.n}: +${g} kiến thức`);
+    addLog(`${a.e} ${a.n}: +${g} KT`);
   } else if(a.lu){
     let g=a.lu;
-    if(a.lu==1) g=8*(1+S.kt/50)*eff;
+    if(a.lu==1){
+      const rate=WRITE_RATE[S.ch];
+      g=rate*(1+S.kt/100)*eff;
+    }
     g=Math.round(g*10)/10;
     S.lu=cl(S.lu+g,0,100);
     addLog(`${a.e} ${a.n}: +${g}% luận văn`);
@@ -834,22 +797,89 @@ function applyAct(a){
   } else {
     addLog(`${a.e} ${a.n}`);
   }
+  S.actedInPeriod=true;
   beep(a.grp=='viet'?880:a.grp=='choi'?660:520,.08);
+
+  // HP thấp → nghỉ ốm
+  if(S.hp<20 && S.hp>0){
+    save();drawAll();
+    setTimeout(()=>{
+      modal(`<h2>🤒 Vân Khánh ốm</h2>
+      <div class="body">HP xuống dưới 20. Cô phải nghỉ ngơi một ngày.</div>
+      <div class="mb"><button class="btn p" data-a="mx">Cố lên.</button></div>`);
+      S.hp=50;S.sp=Math.max(30,S.sp);
+      S.day++;S.period=0;S.actedInPeriod=false;S.ateInPeriod=false;S.logDay=[];
+      checkWeekLimit();
+      save();drawAll();
+    },400);
+    return;
+  }
+  if(S.hp<=0) S.hp=30;
+  save();drawAll();
 }
 
-/* ===== END DAY / WEEK ===== */
-function endDay(){
-  if(S.day%7==0){ endWeek(); return; }
+/* chuyển buổi */
+function nextPeriod(){
+  if(!S.actedInPeriod) return;
+  if(S.period>=2){
+    // tối → hết ngày
+    endDay(false);
+    return;
+  }
+  S.period++;
+  S.ateInPeriod=false;
+  S.actedInPeriod=false;
+  save();drawAll();
+}
+
+/* nút Ngủ FAB */
+function sleepNow(){
+  if(T.modal) return;
+  const cleanDay = S.period==0 && !S.ateInPeriod && !S.actedInPeriod;
+  if(!cleanDay){
+    if(!confirm('Kết thúc ngày sớm?\nSẽ bỏ qua các buổi còn lại.')) return;
+  }
+  S.hp=cl(S.hp+18,0,100);
+  S.sp=cl(S.sp+35,0,100);
+  addLog('🌙 Ngủ đêm');
+  endDay(true);
+}
+
+/* hết ngày */
+function endDay(fromSleep){
+  // Chủ Nhật → tổng kết tuần
+  if(S.day%7==0){
+    endWeek();
+    return;
+  }
   S.day++;
   S.period=0;
   S.actedInPeriod=false;
-  S.usedDay={};
+  S.ateInPeriod=false;
   S.logDay=[];
   S.hp=cl(S.hp+2,0,100);
   S.sp=cl(S.sp+2,0,100);
+  checkWeekLimit();
   checkStory();
   save();drawAll();
 }
+
+/* vượt max tuần → thua */
+function checkWeekLimit(){
+  if(S.week>MAX_WEEKS[S.ch]){
+    S.endReason='timeout';
+    save();
+    modal(`<h2>⏰ Quá hạn</h2>
+    <div class="body">Vân Khánh đã học quá ${MAX_WEEKS[S.ch]} tuần mà chưa bảo vệ được luận văn. Trường buộc cô thôi học.</div>
+    <div class="ev">Cô ngồi trong phòng trọ, nhìn cuốn nhật ký dở dang.</div>
+    <div class="mb2">
+      <button class="btn" data-a="record">🏆 Kỷ lục</button>
+      <button class="btn p" data-a="restart">🔄 Chơi lại</button>
+    </div>`);
+  }
+}
+
+/* tổng kết tuần */
 function endWeek(){
   const scholar=SCHOLAR[S.ch];
   const before=S.money;
@@ -858,19 +888,18 @@ function endWeek(){
   const wLog={week:S.week,ch:S.ch,moneyBefore:before,moneyAfter:S.money,
     scholar,rent:RENT,lu:S.lu,kt:S.kt,hp:S.hp,sp:S.sp};
   S.logWeek.push(wLog);
-  if(S.logWeek.length>30) S.logWeek.shift();
-  if(S.week%4==0){
-    S.logMonth.push({month:Math.floor(S.week/4),w:Object.assign({},wLog)});
-    if(S.logMonth.length>12) S.logMonth.shift();
-  }
+  if(S.logWeek.length>40) S.logWeek.shift();
+
   S.week++;
   S.day++;
   S.period=0;
   S.actedInPeriod=false;
-  S.usedDay={};
+  S.ateInPeriod=false;
   S.logDay=[];
   save();
+
   const delta=S.money-before;
+  const weeksLeft=MAX_WEEKS[S.ch]-S.week+1;
   modal(`<div class="sp"><img src="icon-192.png" alt=""></div>
   <h2>🌙 TỔNG KẾT TUẦN ${S.week-1}</h2>
   <div class="g2">
@@ -879,10 +908,9 @@ function endWeek(){
     <span>💰 Chênh lệch</span><b style="color:${delta>=0?'#3a8a70':'#c92e72'}">${delta>=0?'+':''}${delta} tệ</b>
     <span>💵 Còn lại</span><b>${F(S.money)} tệ</b>
     <span>📝 Luận văn</span><b>${S.lu.toFixed(1)}%</b>
-    <span>📚 Kiến thức</span><b>${Math.round(S.kt)}</b>
-    <span>⚡ HP</span><b>${Math.round(S.hp)}</b>
-    <span>💗 SP</span><b>${Math.round(S.sp)}</b>
+    <span>⏳ Còn lại</span><b>${weeksLeft} tuần</b>
   </div>
+  ${S.money<0?'<div class="ev" style="color:#c92e72"><b>⚠️ Tiền âm!</b></div>':''}
   <div class="mb"><button class="btn p" data-a="mx">Sang tuần ${S.week} 💕</button></div>`);
   if(S.money<0){
     S.endReason='evicted';
@@ -897,108 +925,21 @@ function endWeek(){
     },300);
     return;
   }
+  checkWeekLimit();
+  if(S.endReason) return;
   checkStory();
   drawAll();
 }
 
-/* ===== ACTION ===== */
-function doAct(k){
-  if(T.modal) return;
-  const a=ACTS.find(x=>x.k==k);
-  if(!a) return;
-  if(S.actedInPeriod) return toast('Buổi này đã làm rồi');
-  if(a.usedDay && S.usedDay[a.k]) return toast('Hôm nay đã làm rồi');
-  if(a.k=='c_wr' && (S.hp<30||S.sp<30)) return toast('Cần HP, SP ≥ 30');
-  if(a.m<0 && S.money<-a.m) return toast('Không đủ tiền');
-  if(a.k=='c_wr' && S.lu>=100) return;
-
-  applyAct(a);
-  S.actedInPeriod=true;
-
-  // HP thấp → nghỉ ốm
-  if(S.hp<20 && S.hp>0){
-    drawAll();
-    setTimeout(()=>{
-      modal(`<h2>🤒 Vân Khánh ốm</h2>
-      <div class="body">HP xuống dưới 20. Cô phải nghỉ ngơi một ngày.</div>
-      <div class="mb"><button class="btn p" data-a="mx">Cố lên.</button></div>`);
-      S.hp=50;S.sp=Math.max(30,S.sp);
-      S.day++;S.period=0;S.actedInPeriod=false;S.usedDay={};S.logDay=[];
-      save();drawAll();
-    },400);
-    return;
-  }
-  if(S.hp<=0) S.hp=30;
-
-  checkStory();
-  save();drawAll();
-}
-
-/* next buổi */
-function nextPeriod(){
-  if(!S.actedInPeriod) return;
-  if(S.period>=2){
-    // tối → kết thúc ngày
-    endDay();
-    return;
-  }
-  S.period++;
-  S.actedInPeriod=false;
-  S.usedDay={};
-  save();drawAll();
-}
-
-/* nút ngủ FAB */
-function sleepNow(){
-  if(T.modal) return;
-  // nếu chưa hết action → confirm
-  if(S.period<2 || !S.actedInPeriod){
-    const warns=[];
-    if(S.period==0) warns.push('bỏ qua buổi chiều và tối');
-    else if(S.period==1) warns.push('bỏ qua buổi tối');
-    else if(!S.actedInPeriod) warns.push('bỏ qua hành động tối nay');
-    if(!confirm(`Kết thúc ngày sớm?\nSẽ ${warns.join(' và ')}.`)) return;
-  }
-  // cộng HP/SP cho ngủ
-  S.hp=cl(S.hp+18,0,100);
-  S.sp=cl(S.sp+35,0,100);
-  addLog('🌙 Ngủ đêm');
-  // kết thúc ngày (nhưng KHÔNG qua endDay vì endDay tăng ngày +2 hp)
-  S.day++;
-  S.period=0;
-  S.actedInPeriod=false;
-  S.usedDay={};
-  S.logDay=[];
-  if(S.day%7==1 && S.day>1){
-    // vừa qua chủ nhật → endWeek
-    S.day--;
-    endWeek();
-    return;
-  }
-  checkStory();
-  save();drawAll();
-  toast('🌙 Ngủ ngon!');
-}
-
-/* ===== STORY ===== */
+/* STORY */
 function checkStory(){
   if(S.lu>=100 && S.ch==1){
-    const ch1Days=S.day;
-    const ch1Weeks=S.week;
-    S.ch=2;
-    S.lu=0;
-    S.day=1;
-    S.week=1;
-    S.period=0;
-    S.actedInPeriod=false;
-    S.usedDay={};
-    S.flags={};
-    S.logDay=[];
-    S.hp=Math.max(S.hp,70);
-    S.sp=Math.max(S.sp,70);
+    const ch1Days=S.day, ch1Weeks=S.week;
+    S.ch=2;S.lu=0;S.day=1;S.week=1;S.period=0;
+    S.actedInPeriod=false;S.ateInPeriod=false;S.logDay=[];
+    S.hp=Math.max(S.hp,70);S.sp=Math.max(S.sp,70);
     S.money=Math.max(S.money,2000);
-    window.__ch1Days=ch1Days;
-    window.__ch1Weeks=ch1Weeks;
+    window.__ch1Days=ch1Days;window.__ch1Weeks=ch1Weeks;
     save();
     modal(`<div class="sp"><img src="icon-192.png" alt=""></div>
     <h2>🎓 Hoàn thành thạc sĩ!</h2>
@@ -1011,40 +952,16 @@ function checkStory(){
   if(S.lu>=100 && S.ch==2){finishGrad();return}
 
   if(S.ch==1){
-    if(S.day==1 && !S.flags.i1){S.flags.i1=1;
+    if(S.day==1 && !S.flags){S.flags={i1:1};
       modal(`<h2>🌸 Ngày đầu ở Bắc Kinh</h2><div class="body">Vân Khánh xuống sân bay, kéo vali đến CNU. Trời thu Bắc Kinh se lạnh.</div><div class="ev"><i>"Ngày 1 — con bắt đầu."</i></div><div class="mb"><button class="btn p" data-a="mx">Ừm.</button></div>`)}
-    if(S.day==3 && !S.flags.lost){S.flags.lost=1;S.money=Math.max(0,S.money-80);
-      modal(`<h2>😰 Mất ví</h2><div class="body">Mất 80 tệ và thẻ sinh viên. Hòa cho vay tiền.</div><div class="ev"><i>"Không sao đâu, từ từ trả."</i></div><div class="mb"><button class="btn p" data-a="mx">Cảm ơn Hòa.</button></div>`)}
-    if(S.day==5 && !S.flags.gv){S.flags.gv=1;
-      modal(`<h2>🧑‍🏫 Gặp giáo sư Trần</h2><div class="ev">"Đề tài thú vị. Nhưng đừng để tôi thất vọng."</div><div class="mb"><button class="btn p" data-a="mx">Con sẽ cố.</button></div>`)}
-    if(S.lu>=20 && !S.flags.mid){S.flags.mid=1;S.sp=cl(S.sp+15,0,100);
-      modal(`<h2>🌕 Tết Trung Thu</h2><div class="ev">"Ở đây không có gia đình, bà là gia đình."</div><div class="mb"><button class="btn p" data-a="mx">Vâng ạ.</button></div>`)}
-    if(S.lu>=30 && !S.flags.hung){S.flags.hung=1;
-      modal(`<h2>🧑 Gặp Hưng</h2><div class="ev">"Đọc cái này đi. Anh từng dùng cho luận văn."</div><div class="mb"><button class="btn p" data-a="mx">Cảm ơn anh.</button></div>`)}
-    if(S.lu>=50 && !S.flags.def1){S.flags.def1=1;
-      modal(`<h2>📖 Bảo vệ đề cương</h2><div class="ev">Đề cương được duyệt.</div><div class="mb"><button class="btn p" data-a="mx">Tiếp tục viết.</button></div>`)}
   }
   if(S.ch==2){
-    if(S.day==1 && !S.flags.i2){S.flags.i2=1;
+    if(S.day==1 && (!S.flags||!S.flags.i2)){S.flags=Object.assign({},S.flags,{i2:1});
       modal(`<h2>🚄 Lên Thượng Hải</h2><div class="body">Vân Khánh chuyển lên Thượng Hải, nhập học SISU.</div><div class="mb"><button class="btn p" data-a="mx">Bắt đầu.</button></div>`)}
-    if(S.lu>=10 && !S.flags.tuyet){S.flags.tuyet=1;S.sp=cl(S.sp-10,0,100);
-      modal(`<h2>😐 Hàn Tuyết</h2><div class="ev">"Mình không cần chứng minh với ai cả."</div><div class="mb"><button class="btn p" data-a="mx">Kệ cô ấy.</button></div>`)}
-    if(S.lu>=20 && !S.flags.alexei){S.flags.alexei=1;
-      modal(`<h2>🧔 Alexei</h2><div class="ev">"Cậu là người Việt đúng không? Tớ đang dịch Truyện Kiều."</div><div class="mb"><button class="btn p" data-a="mx">Được thôi.</button></div>`)}
-    if(S.lu>=40 && !S.flags.tet){S.flags.tet=1;S.sp=cl(S.sp-15,0,100);
-      modal(`<h2>🏮 Tết xa nhà</h2><div class="ev">"Ráng lên con. Mẹ chờ ngày con tốt nghiệp."</div><div class="mb"><button class="btn p" data-a="mx">Vâng mẹ.</button></div>`)}
-    if(S.lu>=60 && !S.flags.dad){S.flags.dad=1;S.sp=cl(S.sp-20,0,100);
-      modal(`<h2>📞 Bố ốm</h2><div class="body">Không thể về.</div><div class="mb"><button class="btn p" data-a="mx">Cố lên.</button></div>`)}
-    if(S.lu>=80 && !S.flags.def2){S.flags.def2=1;
-      modal(`<h2>📖 Bảo vệ thử</h2><div class="ev">"Chương 3-4 ổn. Nhưng phần mở đầu cần viết lại."</div><div class="mb"><button class="btn p" data-a="mx">Vâng.</button></div>`)}
-    if(S.ch==2 && S.week==2 && !S.flags.sg){S.flags.sg=1;
-      startEvent('Singapore',2000,20,4,15,3)}
-    if(S.ch==2 && S.week==6 && !S.flags.tk){S.flags.tk=1;
-      startEvent('Tokyo',2500,25,5,20,3)}
   }
 }
 
-/* ===== EVENT ===== */
+/* EVENT */
 function startEvent(city,cost,kt,lu,sp,daysAhead){
   S.event={city,cost,kt,lu,sp,triggerDay:S.day+daysAhead};
   save();
@@ -1064,7 +981,6 @@ function eventGo(){
   beep(990,.3);
   toast(`✅ Đã đi hội thảo ${e.city}!`);
   save();drawAll();
-  checkStory();
 }
 function eventNo(){
   if(!S.event) return;
@@ -1075,7 +991,7 @@ function eventNo(){
   save();drawAll();
 }
 
-/* ===== FINISH ===== */
+/* FINISH */
 function finishGrad(){
   if(S.endReason=='grad') return;
   S.endReason='grad';
@@ -1126,7 +1042,7 @@ function finishHome(){
   </div>`);
 }
 
-/* ===== SHEETS ===== */
+/* SHEETS */
 function openLog(){
   T.sheet='log';
   setTxt('sht','📖 Nhật ký');
@@ -1140,7 +1056,7 @@ function openLog(){
   }
   const arr=S.logAll.slice(-60).reverse();
   if(arr.length){
-    html+='<h3>Nhật ký gần đây</h3>'+arr.map(x=>`<div class="it"><div class="m"><b>Ngày ${x.d}</b><small>${x.s}</small></div></div>`).join('');
+    html+='<h3>Gần đây</h3>'+arr.map(x=>`<div class="it"><div class="m"><b>Ngày ${x.d}</b><small>${x.s}</small></div></div>`).join('');
   } else if(!html) html='<div class="sm mu">Chưa có gì.</div>';
   $('#shb').innerHTML=html;
   $('#sheet').classList.remove('hide');
@@ -1176,13 +1092,13 @@ function openRecord(){
 }
 function reSheet(){if(T.sheet){if(T.sheet=='log')openLog();else if(T.sheet=='record')openRecord()}}
 
-/* ===== TEXT ===== */
+/* TEXT */
 const INTRO=`<div class="sp"><img src="icon-192.png" alt=""></div>
 <h2>🌸 Vân Khánh Diary</h2>
 <div class="body">
 Vân Khánh 22 tuổi, du học sinh Việt Nam tại <b>CNU Bắc Kinh</b>. Học bổng chỉ trả học phí — cô tự lo tiền nhà, tiền ăn và luận văn.
 <br><br>
-🌸 <b>Mục tiêu:</b> Xong thạc sĩ → chuyển lên <b>SISU Thượng Hải</b> → xong tiến sĩ → tốt nghiệp.
+🌸 <b>Mục tiêu:</b> Xong thạc sĩ (max 36 tuần) → chuyển lên <b>SISU Thượng Hải</b> → xong tiến sĩ (max 72 tuần) → tốt nghiệp.
 <br><br>
 Bố mẹ và em gái sẽ bay sang dự lễ. Mẹ đã hứa.
 </div>
@@ -1190,26 +1106,27 @@ Bố mẹ và em gái sẽ bay sang dự lễ. Mẹ đã hứa.
 
 const HELP=`<h2>🌸 Cách chơi</h2>
 <div class="body">
-1 ngày = <b>3 buổi</b>: Sáng · Chiều · Tối. Mỗi buổi chọn <b>1 hành động</b>.
+1 ngày = <b>3 buổi</b>. Mỗi buổi: <b>ăn mặc định trước</b>, sau đó chọn 1 hành động.
 <br><br>
 Bấm hành động → bấm <b>➡️ SANG BUỔI</b> để chuyển.
 <br><br>
-Bấm nút <b>🌙 (góc phải)</b> để ngủ bất cứ lúc nào — sẽ có xác nhận nếu chưa hết ngày.
+Bấm <b>🌙 (góc phải)</b> để ngủ bất cứ lúc nào — có xác nhận nếu chưa hết ngày.
 <br><br>
-<b>Chỉ số:</b> HP dưới 20 → nghỉ ốm · SP dưới 20 → hành động yếu · KT cao → viết nhanh · Luận văn 100% → tốt nghiệp.
+<b>Chỉ số:</b> HP &lt; 20 → nghỉ ốm · SP &lt; 20 → yếu 50% · KT cao → viết nhanh · Luận văn 100% → tốt nghiệp.
+<br><br>
+<b>Hạn:</b> Thạc sĩ 36 tuần · Tiến sĩ 72 tuần. Quá hạn → thua.
 <br><br>
 <b>Tuần:</b> −1000 tệ nhà. Học bổng: +2500 (Thạc sĩ) · +3500 (Tiến sĩ).
-<br><br>
-<b>Hội thảo:</b> báo trước 3 ngày · phải đủ tiền mới đi được.
 </div>
 <div class="mb"><button class="btn p" data-a="mx">OK! 🌸</button></div>`;
 
-/* ===== EVENTS ===== */
+/* EVENTS */
 document.addEventListener('click',e=>{
   const target=e.target.closest('[data-a]');
   if(!target) return;
   const a=target.dataset.a,k=target.dataset.k;
   switch(a){
+    case 'eat':doEat(k);break;
     case 'do':doAct(k);break;
     case 'next':nextPeriod();break;
     case 'sleep':sleepNow();break;
@@ -1239,12 +1156,13 @@ document.addEventListener('click',e=>{
 });
 const sheetEl=$('#sheet');
 if(sheetEl) sheetEl.addEventListener('click',e=>{
-  if(e.target.id=='sheet') closeSheet();
+  if(e.target.id==='sheet') closeSheet();
 });
 
-/* ===== KICKOFF ===== */
+/* KICKOFF */
 window.__ch1Days=null;
 window.__ch1Weeks=null;
+if(!S.flags) S.flags={};
 drawAll();
 if(!S.seen){ S.seen=1;save(); modal(INTRO); }
 if('serviceWorker'in navigator&&location.protocol.startsWith('http'))

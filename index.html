@@ -17,9 +17,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Comfortaa:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#4a3b5c;--ink2:#6b5a80;--mu:#a89ab8;
-  --pink:#ff8fb8;--pink2:#ffc6dd;--rose:#ff6b9d;
-  --lav:#c9b6f0;--mint:#8ed9c0;--mint2:#d4f4e7;--honey:#ffd98a;
+  --ink:#4a3b5c;--mu:#a89ab8;
+  --pink2:#ffc6dd;--rose:#ff6b9d;
+  --lav:#c9b6f0;--mint:#8ed9c0;--honey:#ffd98a;
   --shadow-soft:0 2px 8px rgba(180,140,180,.18);
   --radius:14px;
 }
@@ -45,7 +45,7 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 
 #hd{
   position:relative;color:#fff;border-radius:var(--radius);
-  padding:16px 12px 10px;
+  padding:14px 12px 9px;
   background:
     radial-gradient(circle at 20% -20%,rgba(255,255,255,.6),transparent 40%),
     linear-gradient(155deg,#ffb3d1 0%,#ff8fb8 40%,#c9b6f0 100%);
@@ -57,22 +57,12 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
   background:radial-gradient(circle,rgba(255,255,255,.75) 0 2px,transparent 3px) 0 0/14px 11px;
   border-bottom:1px solid rgba(255,255,255,.5);pointer-events:none;
 }
-#hd::after{
-  content:"✧ ˚ ✧";position:absolute;right:8px;bottom:6px;
-  font-size:9px;color:rgba(255,255,255,.6);letter-spacing:2px;pointer-events:none;
-}
-#pause{
-  position:absolute;right:7px;top:14px;width:26px;height:26px;border-radius:50%;
-  background:rgba(255,255,255,.4);border:2px solid #fff;
-  font-size:12px;line-height:1;z-index:3;color:#fff;
-  box-shadow:0 2px 0 rgba(180,140,180,.4);
-}
 .logo-wrap{
   display:flex;align-items:center;gap:8px;
-  position:relative;z-index:1;padding:0 30px 0 2px;min-width:0;
+  position:relative;z-index:1;padding:0 2px;min-width:0;
 }
 #logo{
-  flex:none;width:36px;height:36px;border-radius:50%;object-fit:cover;
+  flex:none;width:34px;height:34px;border-radius:50%;object-fit:cover;
   border:2px solid #fff;
   box-shadow:0 2px 4px rgba(150,90,130,.35),0 0 0 2px rgba(255,255,255,.5);
   background:#ffc6dd;
@@ -181,26 +171,26 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
   font-weight:700;margin-bottom:6px;letter-spacing:.5px;
 }
 #acts{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;
 }
 .act{
   position:relative;border-radius:12px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  font-weight:700;font-size:10.5px;line-height:1.15;
-  height:clamp(56px,7vh,68px);
+  font-weight:700;font-size:11px;line-height:1.15;
+  height:clamp(58px,7.4vh,72px);
   background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.9),transparent 70%),linear-gradient(180deg,#fff,#f5f0ff);
   box-shadow:var(--shadow-soft),inset 0 0 0 1.5px rgba(255,255,255,.9);
   color:var(--ink);padding:3px;
 }
-.act b{font-size:20px;line-height:1.1;margin-bottom:1px;font-weight:400}
+.act b{font-size:22px;line-height:1.1;margin-bottom:2px;font-weight:400}
 .act span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center}
-.act small{position:absolute;top:2px;right:5px;font-size:8.5px;color:var(--mu);font-weight:700}
-.act:active{transform:translateY(2px)}
+.act small{position:absolute;top:3px;right:6px;font-size:9px;color:var(--mu);font-weight:700}
 .act.dis{opacity:.4;filter:grayscale(.7)}
 .act.hi{background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.6),transparent 70%),linear-gradient(180deg,#ffc6dd,#ff9bbf);color:#fff}
 .act.good{background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.6),transparent 70%),linear-gradient(180deg,#a8e6d0,#7ecbaf);color:#fff}
 .act.warn{background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.6),transparent 70%),linear-gradient(180deg,#ffe4a8,#ffd070);color:#8a5a00}
 .act.sleep{background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.6),transparent 70%),linear-gradient(180deg,#c9b6f0,#a890e0);color:#fff}
+.act.an{background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.6),transparent 70%),linear-gradient(180deg,#ffd1dc,#ffb3c6);color:#8a3a4a}
 
 #nav{
   display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:7px;
@@ -223,7 +213,7 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
   width:100%;max-width:480px;max-height:82vh;overflow:auto;
   border-radius:20px 20px 0 0;
   padding:14px 16px calc(env(safe-area-inset-bottom) + 18px);
-  background:radial-gradient(circle at 50% 0%,rgba(255,220,235,.5),transparent 40%),linear-gradient(180deg,#fff,#fdf8ff);
+  background:linear-gradient(180deg,#fff,#fdf8ff);
   box-shadow:0 -6px 20px rgba(180,140,180,.25);
   animation:sup .28s cubic-bezier(.2,1.3,.5,1);
 }
@@ -231,7 +221,7 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 .shh{display:flex;align-items:center;font-size:17px;font-weight:700;margin-bottom:8px;padding-bottom:8px;border-bottom:1.5px dashed var(--pink2);font-family:"Comfortaa",sans-serif}
 .shh b{flex:1}
 h3{margin:14px 0 4px;font-size:14px;font-weight:700;color:var(--rose);display:flex;align-items:center;gap:6px;font-family:"Comfortaa",sans-serif}
-h3::before{content:"✿";color:var(--pink);font-size:16px}
+h3::before{content:"✿";color:var(--rose);font-size:16px}
 .it{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed #f0e8f5}
 .it:last-child{border:0}
 .it .m{flex:1;min-width:0}
@@ -240,7 +230,7 @@ h3::before{content:"✿";color:var(--pink);font-size:16px}
 .bs{display:flex;gap:5px;flex-wrap:wrap}
 .b2{
   border-radius:10px;padding:6px 11px;font-weight:700;font-size:12px;white-space:nowrap;
-  background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.9),transparent 70%),linear-gradient(180deg,#fff,#f0eaff);
+  background:linear-gradient(180deg,#fff,#f0eaff);
   box-shadow:0 2px 0 rgba(180,140,180,.25),inset 0 0 0 1.5px rgba(255,255,255,.9);
   color:var(--ink);
 }
@@ -256,7 +246,7 @@ h3::before{content:"✿";color:var(--pink);font-size:16px}
 .bx{
   width:100%;max-width:420px;max-height:88vh;overflow:auto;
   border-radius:22px;padding:20px;
-  background:radial-gradient(circle at 50% 0%,rgba(255,220,235,.6),transparent 40%),linear-gradient(180deg,#fff,#fdf8ff);
+  background:linear-gradient(180deg,#fff,#fdf8ff);
   box-shadow:0 8px 24px rgba(180,140,180,.3);
   animation:pp .3s cubic-bezier(.2,1.3,.5,1);
 }
@@ -277,7 +267,6 @@ h3::before{content:"✿";color:var(--pink);font-size:16px}
   border:2px solid #fff;border-radius:14px;
   padding:7px 14px;text-align:center;font-weight:700;font-size:12.5px;
   box-shadow:0 4px 10px rgba(200,120,160,.3);
-  animation:pp .25s ease-out;
 }
 @media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
 </style>
@@ -285,7 +274,6 @@ h3::before{content:"✿";color:var(--pink);font-size:16px}
 <body class="ch1">
 <div id="app">
   <header id="hd">
-    <button id="pause" data-a="pause">⏸</button>
     <div class="logo-wrap">
       <img id="logo" src="icon-192.png" alt="Vân Khánh">
       <div class="t">Vân Khánh Diary<small id="chapLbl">✿ THẠC SĨ · CNU BẮC KINH ✿</small></div>
@@ -331,66 +319,61 @@ h3::before{content:"✿";color:var(--pink);font-size:16px}
 
 <script>
 'use strict';
-/* ============================================================
-   🌸 VÂN KHÁNH DIARY v3
-   1 ngày = 3 buổi: Sáng · Chiều · Tối (tối bắt buộc ngủ)
-   1 tuần = 7 ngày · mỗi tuần trả nhà 1000 tệ
-   Học bổng: Thạc sĩ 2500/tuần · Tiến sĩ 3500/tuần
-   Hội thảo nước ngoài: báo trước 3 ngày, phải đủ tiền
-   ============================================================ */
 const $=s=>document.querySelector(s);
 const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
 const F=n=>Math.round(n).toLocaleString('vi-VN');
 
-const KEY='vkdiary_v3';
-const SLOT='vkdiary_slot_v3';
-const REC_KEY='vkdiary_rec_v3';
-const SAVE_VER=3;
+const KEY='vkdiary_v4';
+const SLOT='vkdiary_slot_v4';
+const REC_KEY='vkdiary_rec_v4';
+const SAVE_VER=4;
 const RENT=1000;
-const SCHOLAR=[0,2500,3500];      // [_, Thạc sĩ, Tiến sĩ]
+const SCHOLAR=[0,2500,3500];
 const START_MONEY=500;
 
 const WD=['Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy','Chủ Nhật'];
-const PERIODS=['🌅 Sáng','☀️ Chiều','🌙 Tối'];
+const PERIODS=['🌅 Buổi sáng','☀️ Buổi chiều','🌙 Buổi tối'];
 
 /* ===== HÀNH ĐỘNG ===== */
-/* grp: an | hoc | lam | viet | choi | ngu
-   once: ăn xong làm tiếp được
-   period: sáng/chiều/tối (0/1/2)
+/* p: 0=sáng, 1=chiều, 2=tối
+   grp: an | hoc | lam | viet | choi | ngu | y
+   once: 1 lần/ngày
+   fixed: bắt buộc (chỉ Ngủ tối)
 */
 const ACTS=[
   /* 🌅 SÁNG */
-  {k:'s_an', n:'Ăn sáng', e:'🍚', p:0, hp:8, sp:3, m:-5, grp:'an', once:1},
-  {k:'s_tv', n:'Đi thư viện', e:'📚', p:0, hp:-6, sp:-12, kt:18, grp:'hoc'},
-  {k:'s_tt', n:'Học tiếng', e:'🀄', p:0, hp:-4, sp:-8, kt:6, grp:'hoc'},
-  {k:'s_ts', n:'Pha trà sữa', e:'🧋', p:0, hp:-8, sp:-10, m:45, grp:'lam'},
-  {k:'s_ng', n:'Ngủ nướng', e:'😴', p:0, hp:10, sp:15, grp:'ngu'},
+  {k:'s_an', n:'Ăn sáng',        e:'🍚', p:0, hp:8,   sp:3,   m:-5,  grp:'an',  once:1},
+  {k:'s_tv', n:'Đi thư viện',    e:'📚', p:0, hp:-6,  sp:-12, kt:18, grp:'hoc'},
+  {k:'s_tt', n:'Học tiếng Trung',e:'🀄', p:0, hp:-4,  sp:-8,  kt:6,  grp:'hoc'},
+  {k:'s_ts', n:'Pha trà sữa',    e:'🧋', p:0, hp:-8,  sp:-10, m:45,  grp:'lam'},
+  {k:'s_ng', n:'Ngủ nướng',      e:'😴', p:0, hp:10,  sp:15,         grp:'ngu'},
 
   /* ☀️ CHIỀU */
-  {k:'c_an', n:'Ăn trưa', e:'🍜', p:1, hp:12, sp:4, m:-8, grp:'an', once:1},
-  {k:'c_wr', n:'Viết luận', e:'✍️', p:1, hp:-10, sp:-15, lu:1, grp:'viet'},
-  {k:'c_gv', n:'Gặp GV', e:'🧑‍🏫', p:1, hp:-3, sp:-5, kt:3, lu:2, grp:'viet', once:1},
-  {k:'c_ta', n:'Trợ giảng', e:'🎓', p:1, hp:-10, sp:-10, m:75, grp:'lam'},
-  {k:'c_cf', n:'Đi cafe', e:'☕', p:1, hp:-2, sp:18, m:-25, grp:'choi'},
+  {k:'c_an', n:'Ăn trưa',        e:'🍜', p:1, hp:12,  sp:4,   m:-8,  grp:'an',  once:1},
+  {k:'c_wr', n:'Viết luận',      e:'✍️', p:1, hp:-10, sp:-15, lu:1,  grp:'viet'},
+  {k:'c_gv', n:'Gặp giáo sư',    e:'🧑‍🏫', p:1, hp:-3,  sp:-5,  kt:3, lu:2, grp:'viet', once:1},
+  {k:'c_ta', n:'Trợ giảng',      e:'🎓', p:1, hp:-10, sp:-10, m:75,  grp:'lam'},
+  {k:'c_cf', n:'Đi cafe',        e:'☕', p:1, hp:-2,  sp:18,  m:-25, grp:'choi'},
 
   /* 🌙 TỐI */
-  {k:'t_an', n:'Ăn tối', e:'🍲', p:2, hp:12, sp:4, m:-8, grp:'an', once:1},
-  {k:'t_dh', n:'Dạy online', e:'💻', p:2, hp:-10, sp:-12, m:70, grp:'lam'},
-  {k:'t_goi', n:'Gọi nhà', e:'📞', p:2, hp:0, sp:25, m:-5, grp:'choi'},
-  {k:'t_pho', n:'Đi phố', e:'🚶', p:2, hp:-4, sp:22, m:-40, grp:'choi'},
-  {k:'t_fx', n:'Sửa lỗi', e:'🔍', p:2, hp:-4, sp:-8, lu:3, grp:'viet'},
-  {k:'t_ngu', n:'Ngủ', e:'🌙', p:2, hp:18, sp:35, grp:'ngu', fixed:1}
+  {k:'t_an', n:'Ăn tối',         e:'🍲', p:2, hp:12,  sp:4,   m:-8,  grp:'an',  once:1},
+  {k:'t_dh', n:'Dạy online',     e:'💻', p:2, hp:-10, sp:-12, m:70,  grp:'lam'},
+  {k:'t_goi',n:'Gọi về nhà',     e:'📞', p:2, hp:0,   sp:25,  m:-5,  grp:'choi'},
+  {k:'t_pho',n:'Đi phố',         e:'🚶', p:2, hp:-4,  sp:22,  m:-40, grp:'choi'},
+  {k:'t_fx', n:'Sửa lỗi luận',   e:'🔍', p:2, hp:-4,  sp:-8,  lu:3,  grp:'viet'},
+  {k:'t_ngu',n:'Ngủ',            e:'🌙', p:2, hp:18,  sp:35,         grp:'ngu', fixed:1}
 ];
 
-/* ===== TRẠNG THÁI ===== */
+/* ===== STATE ===== */
 const D0=()=>({
   day:1,week:1,ch:1,period:0,hp:80,sp:70,kt:5,lu:0,
   money:START_MONEY,
-  periodActed:false,         // đã làm 1 việc trong buổi này chưa
-  usedDay:{},                // once per day
+  actedInPeriod:false,   // đã làm 1 hành động chưa
+  ateInPeriod:false,     // đã ăn trong buổi chưa
+  usedDay:{},
   flags:{},
   logDay:[], logWeek:[], logMonth:[], logAll:[],
-  event:null,                // sự kiện đang chờ: {type,data,dayLeft}
+  event:null,
   seen:0, snd:1, endReason:'',
   weekStart:{money:START_MONEY,lu:0,kt:5,hp:80,sp:70},
   monthStart:{money:START_MONEY,lu:0,kt:5,hp:80,sp:70}
@@ -404,7 +387,7 @@ try{
   }
 }catch(e){}
 
-const T={pause:0,modal:0,mq:[],sheet:'',now:performance.now(),sv:0,lastUI:0};
+const T={modal:0,mq:[],sheet:''};
 
 /* ===== SAVE ===== */
 function pack(){return JSON.stringify({v:SAVE_VER,ts:Date.now(),data:S})}
@@ -456,7 +439,7 @@ function importSave(){
       try{
         const o=JSON.parse(r.result);
         if(!o||!o.data) return toast('❌ File không hợp lệ');
-        if(!confirm(`Nhập save Ngày ${o.data.day} · C${o.data.ch}?`)) return;
+        if(!confirm(`Nhập save Ngày ${o.data.day}?`)) return;
         S=Object.assign(D0(),o.data);save();drawAll();
         toast('✅ Đã nhập save!');
       }catch(e){toast('❌ Lỗi đọc file')}
@@ -480,16 +463,14 @@ function getRec(){
   catch(e){return {b1:null,b2:null,bT:null,fin:[]}}
 }
 function saveRec(r){try{localStorage.setItem(REC_KEY,JSON.stringify(r))}catch(e){}}
-function addFinish(tot,c1,c2,ch){
+function addFinish(tot,c1,c2){
   const r=getRec();
   r.fin=r.fin||[];
-  r.fin.push({t:tot,c1:c1,c2:c2,ch:ch,ts:Date.now()});
+  r.fin.push({t:tot,c1,c2,ts:Date.now()});
   if(r.fin.length>10) r.fin=r.fin.slice(-10);
-  if(ch==2){
-    if(!r.b1||c1<r.b1) r.b1=c1;
-    if(!r.b2||c2<r.b2) r.b2=c2;
-    if(!r.bT||tot<r.bT) r.bT=tot;
-  }
+  if(!r.b1||c1<r.b1) r.b1=c1;
+  if(!r.b2||c2<r.b2) r.b2=c2;
+  if(!r.bT||tot<r.bT) r.bT=tot;
   saveRec(r);
 }
 
@@ -509,7 +490,7 @@ function beep(f=600,d=.1){
   }catch(e){}
 }
 
-/* ===== UI HELPERS ===== */
+/* ===== UI ===== */
 function toast(m){
   const d=document.createElement('div');d.textContent=m;
   $('#toast').append(d);
@@ -529,13 +510,11 @@ function mclose(){
 }
 function closeSheet(){T.sheet='';$('#sheet').classList.add('hide')}
 
-/* ===== CACHE DOM ===== */
 const EL={};
 const el=id=>EL[id]||(EL[id]=document.getElementById(id));
 const setTxt=(id,v)=>{const e=el(id);if(e&&e.textContent!==v)e.textContent=v};
 const setW=(id,v)=>{const e=el(id);const w=v+'%';if(e&&e.style.width!==w)e.style.width=w};
 
-/* ===== MOOD ===== */
 function moodText(){
   if(S.hp<20) return 'Vân Khánh mệt lả, cần nghỉ ngơi.';
   if(S.sp<20) return 'Vân Khánh chán nản, không muốn làm gì.';
@@ -546,7 +525,6 @@ function moodText(){
   return 'Trời tối dần, Vân Khánh bật đèn bàn.';
 }
 
-/* ===== DRAW ===== */
 function drawHead(){
   document.body.className='ch'+S.ch;
   setTxt('chapLbl',S.ch==1?'✿ THẠC SĨ · CNU BẮC KINH ✿':'✿ TIẾN SĨ · SISU THƯỢNG HẢI ✿');
@@ -564,32 +542,27 @@ function drawScene(){
   setTxt('weekV',WD[(S.day-1)%7]);
   setTxt('periodV',PERIODS[S.period]);
   setTxt('mood',moodText());
-  // Log
   const lines=S.logDay.slice(-4);
   const logEl=$('#log');
   const html=lines.length
     ? lines.map(l=>`<span class="ln">${l}</span>`).join('')
     : '<span class="ln" style="opacity:.6">Nhật ký sẽ ghi lại ở đây...</span>';
   if(logEl._h!==html){logEl._h=html;logEl.innerHTML=html}
-  // Notice sự kiện
   const nEl=$('#notice');
   if(S.event){
-    const daysLeft=S.event.triggerDay-S.day;
+    const daysLeft=Math.max(0,S.event.triggerDay-S.day);
     nEl.classList.add('on');
-    nEl.innerHTML=`📢 <b>Hội thảo ${S.event.city}</b> · còn ${daysLeft} ngày · cần ${S.event.cost} tệ · <button class="b2 p" data-a="evGo" style="padding:2px 8px;font-size:11px">Đi</button> <button class="b2" data-a="evNo" style="padding:2px 8px;font-size:11px">Không</button>`;
+    nEl.innerHTML=`📢 <b>Hội thảo ${S.event.city}</b> · còn ${daysLeft} ngày · ${S.event.cost} tệ · <button class="b2 p" data-a="evGo" style="padding:2px 8px;font-size:11px">Đi</button> <button class="b2" data-a="evNo" style="padding:2px 8px;font-size:11px">Không</button>`;
   } else nEl.classList.remove('on');
 }
+
 function drawActs(){
   const period=S.period;
   const list=ACTS.filter(a=>a.p==period);
-  // Nếu đã làm 1 việc trong buổi → chỉ hiện "Ngủ" (buổi tối) hoặc thông báo
-  const done=S.periodActed;
+  const done=S.actedInPeriod;
   const lbl=(()=>{
-    if(done){
-      if(period==0) return 'Đã xong buổi sáng → chuyển sang Chiều';
-      if(period==1) return 'Đã xong buổi chiều → chuyển sang Tối';
-      return 'Bấm Ngủ để kết thúc ngày';
-    }
+    if(done && period<2) return `Đã xong buổi ${['sáng','chiều'][period]} → bấm tiếp để chuyển`;
+    if(done && period==2) return 'Đã xong buổi tối → bấm Ngủ để kết thúc ngày';
     return `Chọn 1 hành động cho buổi ${['sáng','chiều','tối'][period]}`;
   })();
   setTxt('period-lbl',lbl);
@@ -598,15 +571,18 @@ function drawActs(){
   for(let i=0;i<list.length;i++){
     const a=list[i];
     let dis=false,cls='';
+    // đã làm gì đó trong buổi (trừ ăn)
     if(done && !a.fixed) dis=true;
     if(a.once && S.usedDay[a.k]) dis=true;
     if(a.k=='c_wr' && (S.hp<30||S.sp<30)) dis=true;
     if(a.m<0 && S.money<-a.m) dis=true;
     if(a.k=='c_wr' && S.lu>=100) dis=true;
+
     if(a.grp=='viet' && !dis) cls='good';
     else if(a.grp=='choi' && !dis) cls='hi';
     else if(a.grp=='lam' && !dis) cls='warn';
     else if(a.grp=='ngu' && !dis) cls='sleep';
+    else if(a.grp=='an' && !dis) cls='an';
     if(dis) cls+=' dis';
     const cost=a.m?`<small>${a.m>0?'+':''}${a.m}</small>`:'';
     html.push(`<button class="act ${cls}" data-a="do" data-k="${a.k}"><b>${a.e}</b><span>${a.n}</span>${cost}</button>`);
@@ -617,7 +593,6 @@ function drawActs(){
 }
 function drawAll(){drawHead();drawScene();drawActs()}
 
-/* ===== LOG ===== */
 function addLog(s){
   S.logDay.push(s);
   if(S.logDay.length>60) S.logDay.shift();
@@ -625,10 +600,8 @@ function addLog(s){
   if(S.logAll.length>500) S.logAll.shift();
 }
 
-/* ===== EFFICIENCY ===== */
 function lowEff(){return (S.hp<30||S.sp<30)?0.5:1}
 
-/* ===== APPLY ACTION ===== */
 function applyAct(a){
   const eff=lowEff();
   if(a.hp) S.hp=cl(S.hp+Math.round(a.hp*eff),0,100);
@@ -637,74 +610,59 @@ function applyAct(a){
   if(a.kt){
     const g=Math.round(a.kt*eff);
     S.kt+=g;
-    addLog(`${a.e} ${a.n}: +${g} kiến thức${eff<1?' (mệt)':''}`);
+    addLog(`${a.e} ${a.n}: +${g} kiến thức`);
   } else if(a.lu){
     let g=a.lu;
     if(a.lu==1) g=8*(1+S.kt/50)*eff;
     g=Math.round(g*10)/10;
     S.lu=cl(S.lu+g,0,100);
-    addLog(`${a.e} ${a.n}: +${g}% luận văn${eff<1?' (mệt)':''}`);
+    addLog(`${a.e} ${a.n}: +${g}% luận văn`);
   } else if(a.grp=='lam'){
     addLog(`${a.e} ${a.n}: +${a.m} tệ`);
-  } else if(a.grp=='y'){
-    addLog(`🏥 Nghỉ ốm`);
   } else {
     addLog(`${a.e} ${a.n}`);
   }
   if(a.once) S.usedDay[a.k]=1;
-  S.periodActed=true;
   beep(a.grp=='viet'?880:a.grp=='choi'?660:520,.08);
 }
 
-/* ===== END DAY ===== */
+/* ===== END DAY / WEEK ===== */
 function endDay(){
-  // Chủ nhật (day%7==0) → tổng kết tuần
-  if(S.day%7==0){
-    endWeek();
-    return;
-  }
+  if(S.day%7==0){ endWeek(); return; }
   S.day++;
   S.period=0;
-  S.periodActed=false;
+  S.actedInPeriod=false;
+  S.ateInPeriod=false;
   S.usedDay={};
   S.logDay=[];
   S.hp=cl(S.hp+2,0,100);
   S.sp=cl(S.sp+2,0,100);
   checkStory();
-  save();
-  drawAll();
+  save();drawAll();
 }
 function endWeek(){
-  // tổng kết tuần
   const scholar=SCHOLAR[S.ch];
   const before=S.money;
   S.money+=scholar;
   S.money-=RENT;
-  // log tuần
-  const wLog={
-    week:S.week,ch:S.ch,
-    moneyBefore:before,moneyAfter:S.money,
-    scholar,rent:RENT,
-    lu:S.lu,kt:S.kt,hp:S.hp,sp:S.sp
-  };
+  const wLog={week:S.week,ch:S.ch,moneyBefore:before,moneyAfter:S.money,
+    scholar,rent:RENT,lu:S.lu,kt:S.kt,hp:S.hp,sp:S.sp};
   S.logWeek.push(wLog);
-  if(S.logWeek.length>20) S.logWeek.shift();
-  // log tháng (4 tuần = 1 tháng)
+  if(S.logWeek.length>30) S.logWeek.shift();
   if(S.week%4==0){
-    S.logMonth.push({month:S.week/4,w:Object.assign({},wLog)});
+    S.logMonth.push({month:Math.floor(S.week/4),w:Object.assign({},wLog)});
     if(S.logMonth.length>12) S.logMonth.shift();
   }
   S.week++;
   S.day++;
   S.period=0;
-  S.periodActed=false;
+  S.actedInPeriod=false;
+  S.ateInPeriod=false;
   S.usedDay={};
   S.logDay=[];
-  // tuần mới
   S.weekStart={money:S.money,lu:S.lu,kt:S.kt,hp:S.hp,sp:S.sp};
   if(S.week%4==1) S.monthStart=Object.assign({},S.weekStart);
   save();
-  // modal tổng kết
   const moneyDelta=S.money-before;
   modal(`<div class="sp"><img src="icon-192.png" alt=""></div>
   <h2>🌙 TỔNG KẾT TUẦN ${S.week-1}</h2>
@@ -712,15 +670,14 @@ function endWeek(){
     <span>🎁 Học bổng</span><b>+${scholar} tệ</b>
     <span>🏠 Tiền nhà</span><b>−${RENT} tệ</b>
     <span>💰 Chênh lệch</span><b style="color:${moneyDelta>=0?'#3a8a70':'#c92e72'}">${moneyDelta>=0?'+':''}${moneyDelta} tệ</b>
-    <span>💵 Tiền hiện có</span><b>${F(S.money)} tệ</b>
+    <span>💵 Còn lại</span><b>${F(S.money)} tệ</b>
     <span>📝 Luận văn</span><b>${S.lu.toFixed(1)}%</b>
     <span>📚 Kiến thức</span><b>${Math.round(S.kt)}</b>
     <span>⚡ HP</span><b>${Math.round(S.hp)}</b>
     <span>💗 SP</span><b>${Math.round(S.sp)}</b>
   </div>
-  ${S.money<0?'<div class="ev" style="color:#c92e72"><b>⚠️ Cảnh báo:</b> Tiền sắp âm!</div>':''}
+  ${S.money<0?'<div class="ev" style="color:#c92e72"><b>⚠️ Tiền âm!</b></div>':''}
   <div class="mb"><button class="btn p" data-a="mx">Sang tuần ${S.week} 💕</button></div>`);
-  // nếu tiền âm sau khi trả nhà → thua
   if(S.money<0){
     S.endReason='evicted';
     setTimeout(()=>{
@@ -738,12 +695,12 @@ function endWeek(){
   drawAll();
 }
 
-/* ===== DO ACTION ===== */
+/* ===== ACTION ===== */
 function doAct(k){
   if(T.modal) return;
   const a=ACTS.find(x=>x.k==k);
   if(!a) return;
-  if(S.periodActed && !a.fixed) return toast('Buổi này đã làm rồi');
+  if(S.actedInPeriod && !a.fixed) return toast('Buổi này đã làm rồi');
   if(a.once && S.usedDay[a.k]) return toast('Hôm nay đã làm rồi');
   if(a.k=='c_wr' && (S.hp<30||S.sp<30)) return toast('Cần HP, SP ≥ 30');
   if(a.m<0 && S.money<-a.m) return toast('Không đủ tiền');
@@ -751,7 +708,7 @@ function doAct(k){
 
   applyAct(a);
 
-  // Ngủ (fixed) → kết thúc ngày
+  // Ngủ → kết thúc ngày
   if(a.fixed){
     drawAll();
     setTimeout(()=>endDay(),400);
@@ -760,71 +717,85 @@ function doAct(k){
 
   // Ăn → cho làm tiếp 1 việc trong buổi
   if(a.grp=='an'){
-    S.periodActed=true;
-    // đánh dấu đã ăn trong buổi → lần tiếp theo chỉ còn việc khác (đã dùng once)
+    S.ateInPeriod=true;
+    // actedInPeriod vẫn false → cho chọn thêm 1 hành động
   } else {
-    // việc thường → chuyển sang buổi kế
-    S.period++;
-    S.periodActed=false;
-    // nếu đã sang tối (period 2) → vẫn cho chọn 1 việc tối, rồi ngủ
+    // việc khác → chuyển sang buổi kế
+    S.actedInPeriod=true;   // đánh dấu đã xong buổi này
+    // người chơi bấm tiếp sẽ chuyển buổi (xử lý ở nextPeriod)
   }
 
-  // HP thấp → bắt buộc nghỉ ốm
+  // HP thấp → nghỉ ốm
   if(S.hp<20 && S.hp>0){
     drawAll();
     setTimeout(()=>{
       modal(`<h2>🤒 Vân Khánh ốm</h2>
       <div class="body">HP xuống dưới 20. Cô phải nghỉ ngơi một ngày.</div>
-      <div class="ev">Nhắm mắt lại, uống thuốc, ngủ một mạch.</div>
       <div class="mb"><button class="btn p" data-a="mx">Cố lên.</button></div>`);
-      S.hp=50;S.sp=Math.max(30,S.sp);
+      S.hp=50;
+      S.sp=Math.max(30,S.sp);
       S.day++;
       S.period=0;
-      S.periodActed=false;
+      S.actedInPeriod=false;
+      S.ateInPeriod=false;
       S.usedDay={};
       S.logDay=[];
       save();drawAll();
     },400);
     return;
   }
-  if(S.hp<=0){S.hp=30;}
+  if(S.hp<=0) S.hp=30;
 
   checkStory();
   save();
   drawAll();
 }
 
+/* chuyển sang buổi kế khi bấm lại */
+function nextPeriod(){
+  if(!S.actedInPeriod) return false;
+  if(S.period>=2) return false;
+  S.period++;
+  S.actedInPeriod=false;
+  S.ateInPeriod=false;
+  S.usedDay={};   // reset once để ăn ở buổi mới
+  save();
+  drawAll();
+  return true;
+}
+
 /* ===== STORY ===== */
 function checkStory(){
-  // sang chương 2
   if(S.lu>=100 && S.ch==1){
     const ch1Days=S.day;
-    const ch1Week=S.week;
+    const ch1Weeks=S.week;
     S.ch=2;
     S.lu=0;
     S.day=1;
     S.week=1;
     S.period=0;
-    S.periodActed=false;
+    S.actedInPeriod=false;
+    S.ateInPeriod=false;
     S.usedDay={};
     S.flags={};
     S.logDay=[];
     S.hp=Math.max(S.hp,70);
     S.sp=Math.max(S.sp,70);
     S.money=Math.max(S.money,2000);
+    S.weekStart={money:S.money,lu:0,kt:S.kt,hp:S.hp,sp:S.sp};
+    S.monthStart=Object.assign({},S.weekStart);
     window.__ch1Days=ch1Days;
-    window.__ch1Weeks=ch1Week;
+    window.__ch1Weeks=ch1Weeks;
     save();
     modal(`<div class="sp"><img src="icon-192.png" alt=""></div>
     <h2>🎓 Hoàn thành thạc sĩ!</h2>
     <div class="body">Vân Khánh bảo vệ luận văn thạc sĩ xuất sắc. Cô nhận học bổng tiến sĩ ở <b>SISU Thượng Hải</b>.</div>
-    <div class="ev">Chương 1 mất <b>${ch1Days} ngày</b> (${ch1Week} tuần).</div>
+    <div class="ev">Chương 1 mất <b>${ch1Days} ngày</b> (${ch1Weeks} tuần).</div>
     <div class="body">Bố mẹ gọi điện chúc mừng, em gái hét lên trong điện thoại.</div>
     <div class="mb"><button class="btn p" data-a="mx">Lên đường! 🚄</button></div>`);
     drawAll();
     return;
   }
-  // kết thúc
   if(S.lu>=100 && S.ch==2){finishGrad();return}
 
   if(S.ch==1){
@@ -847,14 +818,13 @@ function checkStory(){
     if(S.lu>=10 && !S.flags.tuyet){S.flags.tuyet=1;S.sp=cl(S.sp-10,0,100);
       modal(`<h2>😐 Hàn Tuyết</h2><div class="body">Hàn Tuyết nói Vân Khánh "chỉ giỏi nhờ may mắn". Cô nghe được nhưng im lặng.</div><div class="ev">"Mình không cần chứng minh với ai cả."</div><div class="mb"><button class="btn p" data-a="mx">Kệ cô ấy.</button></div>`)}
     if(S.lu>=20 && !S.flags.alexei){S.flags.alexei=1;
-      modal(`<h2>🧔 Alexei</h2><div class="body">Alexei, nghiên cứu sinh người Nga, tiến lại bắt chuyện.</div><div class="ev">"Cậu là người Việt đúng không? Tớ đang dịch Truyện Kiều. Giúp tớ vài câu được không?"</div><div class="mb"><button class="btn p" data-a="mx">Được thôi.</button></div>`)}
+      modal(`<h2>🧔 Alexei</h2><div class="body">Alexei, nghiên cứu sinh người Nga, tiến lại bắt chuyện.</div><div class="ev">"Cậu là người Việt đúng không? Tớ đang dịch Truyện Kiều."</div><div class="mb"><button class="btn p" data-a="mx">Được thôi.</button></div>`)}
     if(S.lu>=40 && !S.flags.tet){S.flags.tet=1;S.sp=cl(S.sp-15,0,100);
       modal(`<h2>🏮 Tết xa nhà</h2><div class="body">Mẹ gọi video, cả nhà quây quần. Vân Khánh cười, nước mắt chảy.</div><div class="ev">"Ráng lên con. Mẹ chờ ngày con tốt nghiệp."</div><div class="mb"><button class="btn p" data-a="mx">Vâng mẹ.</button></div>`)}
     if(S.lu>=60 && !S.flags.dad){S.flags.dad=1;S.sp=cl(S.sp-20,0,100);
-      modal(`<h2>📞 Bố ốm</h2><div class="body">Em gái nhắn tin: bố nhập viện. Không nặng, nhưng Vân Khánh không thể về.</div><div class="ev">Cô ngồi ngoài hành lang lab, khóc một mình.</div><div class="mb"><button class="btn p" data-a="mx">Cố lên.</button></div>`)}
+      modal(`<h2>📞 Bố ốm</h2><div class="body">Em gái nhắn tin: bố nhập viện. Không nặng, nhưng Vân Khánh không thể về.</div><div class="mb"><button class="btn p" data-a="mx">Cố lên.</button></div>`)}
     if(S.lu>=80 && !S.flags.def2){S.flags.def2=1;
-      modal(`<h2>📖 Bảo vệ thử</h2><div class="body">Giáo sư Lý: "Chương 3 và 4 ổn. Nhưng phần mở đầu cần viết lại."</div><div class="ev">Vân Khánh về nhà, viết lại từ đầu.</div><div class="mb"><button class="btn p" data-a="mx">Vâng.</button></div>`)}
-    // Hội thảo (cố định theo tuần)
+      modal(`<h2>📖 Bảo vệ thử</h2><div class="body">Giáo sư Lý: "Chương 3 và 4 ổn. Nhưng phần mở đầu cần viết lại."</div><div class="mb"><button class="btn p" data-a="mx">Vâng.</button></div>`)}
     if(S.ch==2 && S.week==2 && !S.flags.sg){S.flags.sg=1;
       startEvent('Singapore',2000,20,4,15,3)}
     if(S.ch==2 && S.week==6 && !S.flags.tk){S.flags.tk=1;
@@ -870,17 +840,14 @@ function startEvent(city,cost,kt,lu,sp,daysAhead){
 }
 function eventGo(){
   if(!S.event) return;
-  if(S.money<S.event.cost){
-    toast('❌ Không đủ tiền để đi!');
-    return;
-  }
+  if(S.money<S.event.cost){ toast('❌ Không đủ tiền để đi!'); return; }
   if(!confirm(`Đi hội thảo ${S.event.city}?\nTốn ${S.event.cost} tệ.`)) return;
   const e=S.event;
   S.money-=e.cost;
   S.kt+=e.kt;
   S.lu=cl(S.lu+e.lu,0,100);
   S.sp=cl(S.sp+e.sp,0,100);
-  addLog(`🌏 Đi hội thảo ${e.city}: −${e.cost} tệ, +${e.kt} KT, +${e.lu}% luận`);
+  addLog(`🌏 Hội thảo ${e.city}: −${e.cost} tệ, +${e.kt} KT, +${e.lu}% luận`);
   S.event=null;
   beep(990,.3);
   toast(`✅ Đã đi hội thảo ${e.city}!`);
@@ -903,7 +870,7 @@ function finishGrad(){
   const total=S.day;
   const ch1=window.__ch1Days||total;
   const ch2=Math.max(0,total-ch1);
-  addFinish(total,ch1,ch2,2);
+  addFinish(total,ch1,ch2);
   save();
   beep(1200,.5);
   modal(`<div class="sp"><img src="icon-192.png" alt=""></div>
@@ -954,19 +921,18 @@ function finishHome(){
 function openLog(){
   T.sheet='log';
   setTxt('sht','📖 Nhật ký');
-  const arr=S.logAll.slice(-100).reverse();
   let html='';
-  if(arr.length){
-    html=arr.map(x=>`<div class="it"><div class="m"><b>Ngày ${x.d}</b><small>${x.s}</small></div></div>`).join('');
-  } else html='<div class="sm mu">Chưa có gì.</div>';
-  // thêm log tuần
   if(S.logWeek.length){
     html='<h3>Log tuần</h3>'+S.logWeek.slice().reverse().map(w=>`
       <div class="it"><div class="m"><b>Tuần ${w.week}</b>
       <small>HB +${w.scholar} · Nhà −${w.rent} · Còn ${F(w.moneyAfter)} tệ</small>
       <small>Luận văn ${w.lu.toFixed(1)}% · KT ${Math.round(w.kt)}</small>
-      </div></div>`).join('')+html;
+      </div></div>`).join('');
   }
+  const arr=S.logAll.slice(-80).reverse();
+  if(arr.length){
+    html+='<h3>Nhật ký gần đây</h3>'+arr.map(x=>`<div class="it"><div class="m"><b>Ngày ${x.d}</b><small>${x.s}</small></div></div>`).join('');
+  } else if(!html) html='<div class="sm mu">Chưa có gì.</div>';
   $('#shb').innerHTML=html;
   $('#sheet').classList.remove('hide');
 }
@@ -1015,11 +981,13 @@ Bố mẹ và em gái sẽ bay sang Thượng Hải dự lễ tốt nghiệp. M�
 
 const HELP=`<h2>🌸 Cách chơi</h2>
 <div class="body">
-1 ngày = <b>3 buổi</b>: Sáng · Chiều · Tối. Mỗi buổi chọn <b>1 hành động</b>.
+1 ngày = <b>3 buổi</b>: Sáng · Chiều · Tối.
 <br><br>
-<b>Riêng ăn</b> — ăn xong có thể làm tiếp 1 việc trong buổi.
+<b>Mỗi buổi chỉ làm 1 việc.</b> Bấm việc xong → bấm tiếp để chuyển buổi.
 <br><br>
-<b>Tối bắt buộc Ngủ</b> để kết thúc ngày.
+<b>Riêng Ăn</b> — ăn xong có thể làm tiếp 1 việc khác trong buổi.
+<br><br>
+<b>Buổi tối bắt buộc Ngủ</b> để kết thúc ngày.
 <br><br>
 <b>Chỉ số:</b><br>
 ⚡ HP — dưới 20 bắt buộc nghỉ ốm<br>
@@ -1038,12 +1006,15 @@ const HELP=`<h2>🌸 Cách chơi</h2>
 
 /* ===== EVENTS ===== */
 document.addEventListener('click',e=>{
-  const el2=e.target.closest('[data-a]');
-  if(!el2) return;
-  const a=el2.dataset.a,k=el2.dataset.k;
+  const target=e.target.closest('[data-a]');
+  if(!target) return;
+  const a=target.dataset.a,k=target.dataset.k;
   switch(a){
-    case 'do':doAct(k);break;
-    case 'pause':T.pause^=1;setTxt('pause',T.pause?'▶':'⏸');break;
+    case 'do':
+      // nếu đã actedInPeriod → chuyển buổi thay vì làm việc
+      if(S.actedInPeriod && S.period<2){ nextPeriod(); break; }
+      doAct(k);
+      break;
     case 'log':openLog();break;
     case 'record':openRecord();break;
     case 'home':finishHome();break;
@@ -1073,36 +1044,7 @@ if(sheetEl) sheetEl.addEventListener('click',e=>{
   if(e.target.id=='sheet') closeSheet();
 });
 
-/* ===== LOOP — chỉ update UI nhẹ ===== */
-let rafId=0;
-function loop(now){
-  rafId=requestAnimationFrame(loop);
-  if(now-T.lastUI>333){
-    T.lastUI=now;
-    if(!T.modal){
-      // chỉ update vài thứ nhẹ, phần lớn đã được draw sau mỗi action
-      setTxt('hpV',Math.round(S.hp));
-      setTxt('spV',Math.round(S.sp));
-      setTxt('moneyV',F(S.money));
-      setTxt('ktV',Math.round(S.kt));
-      setW('hpB',S.hp);
-      setW('lvB',S.lu);
-      setTxt('hpLbl','HP '+Math.round(S.hp));
-      setTxt('lvLbl','Luận văn '+S.lu.toFixed(1)+'%');
-    }
-  }
-  if((T.sv+=0.016)>15){T.sv=0;save()}
-}
-document.addEventListener('visibilitychange',()=>{
-  if(document.hidden){
-    if(rafId){cancelAnimationFrame(rafId);rafId=0}
-    if(AC) AC.suspend();
-  } else if(!rafId){
-    T.now=performance.now();
-    if(AC) AC.resume();
-    rafId=requestAnimationFrame(loop);
-  }
-});
+/* ===== NO LOOP — game hoàn toàn event-driven ===== */
 
 /* ===== KICKOFF ===== */
 window.__ch1Days=null;
@@ -1112,7 +1054,6 @@ if(!S.seen){
   S.seen=1;save();
   modal(INTRO);
 }
-requestAnimationFrame(loop);
 if('serviceWorker'in navigator&&location.protocol.startsWith('http'))
   navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
